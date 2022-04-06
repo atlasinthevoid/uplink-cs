@@ -17,7 +17,8 @@ Entity client = new() {
     new StatusSystem("status system", state),
     new TerminalSystem("terminal system", state),
 };
-client.Add(new TextComponent("client", client.Id.ToString()));
+client.Add(new Component("client"));
+client.Add(new Component(client.Id.ToString()));
 
 state.Entities.Add(client);
 

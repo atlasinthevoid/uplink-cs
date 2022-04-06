@@ -1,4 +1,6 @@
-﻿public class StatusSystem : SystemComponent
+﻿using System.Numerics;
+
+public class StatusSystem : SystemComponent
 {
     public StatusSystem(string name, State state) : base(name, state)
     {
@@ -12,28 +14,29 @@
 
     async void CheckVars()
     {
-        await CreateEvent("update", new() { new("private", true), new("local client id") }, broadcaster.Id);
-        Vector3 position = new(0, 0, 0);
-        await CreateEvent("update", new() { new("private", true), new("position") }, position);
+        PositionComponent position = new("universe position", new Vector3(0, 0, 0));
 
-        await CreateEvent("update", new() { new(position.ToString()), new("revision") }, 0);
-        await CreateEvent("update", new() { new(position.ToString()), new("server") }, "192.168.0.1:4545");
+        Entity clientId = new();
+        clientId.Add(new Component("local client id"));
+        clientId.Add(new IdComponent("id", LocalState.Id));
+        await LocalState.CreateEvent("update", clientId);
 
-        await CreateEvent("update", new() { new(broadcaster.Id.ToString()), new("started") }, false);
+        Entity universe = new();
+        universe.Add(new Component("position"));
+        universe.Add(position);
+        universe.Add(new IntComponent("revision", 0));
+        universe.Add(new TextComponent("server", "192.168.0.1:4545"));
+        universe.Add(new BoolComponent("started", false));
+        universe.Add(new BoolComponent("ready", true));
+        await LocalState.CreateEvent("update", universe);
 
-        await CreateEvent("update", new() { new("universe"), new("ready") }, true);
-
-        await CreateEvent("update", new() { new(broadcaster.Id.ToString()), new("uplink data") },
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
-                    + @"\Uplink\");
-
-        await CreateEvent("update", new() { new(broadcaster.Id.ToString()), new("uplink ingest") },
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-                    + @"\Uplink Ingest\");
-
-        await CreateEvent("update", new() { new(broadcaster.Id.ToString()), new("uplink export") },
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-                    + @"\Uplink Export\");
+        Entity filesystem = new();
+        string appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        filesystem.Add(new TextComponent("uplink data", appData + @"\Uplink\"));
+        filesystem.Add(new TextComponent("uplink ingest", documents + @"\Uplink Ingest\"));
+        filesystem.Add(new TextComponent("uplink export", documents + @"\Uplink Export\"));
+        await LocalState.CreateEvent("update", filesystem);
     }
 
 
@@ -84,9 +87,4 @@
 
         return state;
     }*/
-
-    static string PrettyGuid(Guid id)
-    {
-        return id.ToString().Split("-")[0];
-    }
 }

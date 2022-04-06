@@ -8,6 +8,8 @@ public class Event
     public string Type;
     public Entity Object;
     public TaskCompletionSource<dynamic> Task;
+    bool processed;
+    bool synced;
 
     public Event(Guid author, string type, Entity newObject)
     {
@@ -17,5 +19,7 @@ public class Event
         Type = type;
         Object = newObject;
         Task = new();
+        processed = false;
+        synced = false;
     }
 }

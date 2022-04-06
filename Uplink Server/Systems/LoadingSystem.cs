@@ -2,7 +2,7 @@
 {
     public LoadingSystem(string name, State state) : base(name, state)
     {
-        LoadUniverseFromFile(await );
+        LoadUniverseFromFile(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Uplink\");
     }
 
     public void Update()

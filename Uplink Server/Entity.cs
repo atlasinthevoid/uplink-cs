@@ -12,6 +12,12 @@ public class Entity : IEnumerable<KeyValuePair<string, Component>>
         Components = new();
     }
 
+    public Entity(Entity entity)
+    {
+        Id = entity.Id;
+        Components = entity.Components;
+    }
+
     public void Add(Component comp)
     {
         Components[comp.Name] = comp;
