@@ -1,11 +1,16 @@
-﻿using System;
-
-public class AudioComponent : Component
+﻿namespace Uplink
 {
-    public byte[] Bytes;
-
-    public AudioComponent(string name, byte[] bytes) : base(name)
+    public class AudioComponent : Component
     {
-        Bytes = bytes;
+        public byte[] Bytes;
+
+        public AudioComponent()
+        {
+            Bytes = new byte[800];
+        }
+        public AudioComponent(Guid author, string name, byte[] bytes) : base(author, name)
+        {
+            Bytes = bytes;
+        }
     }
 }

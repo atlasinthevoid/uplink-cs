@@ -1,11 +1,17 @@
-﻿using System;
-
-public class FloatComponent : Component
+﻿namespace Uplink
 {
-    public float? Number;
-
-    public FloatComponent(string name, int number) : base(name)
+    public class FloatComponent : Component
     {
-        Number = number;
+        public float? Number;
+
+        public FloatComponent()
+        {
+            Number = 0.0f;
+        }
+
+        public FloatComponent(Guid author, string name, int number) : base(author, name)
+        {
+            Number = number;
+        }
     }
 }

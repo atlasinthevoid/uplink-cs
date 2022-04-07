@@ -1,12 +1,19 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 
-public class PositionComponent : Component
+namespace Uplink
 {
-    public Vector3? Number;
-
-    public PositionComponent(string name, Vector3 number) : base(name)
+    public class PositionComponent : Component
     {
-        Number = number;
+        public Vector3? Number;
+
+        public PositionComponent()
+        {
+            Number = Vector3.Zero;
+        }
+
+        public PositionComponent(Guid author, string name, Vector3 number) : base(author, name)
+        {
+            Number = number;
+        }
     }
 }

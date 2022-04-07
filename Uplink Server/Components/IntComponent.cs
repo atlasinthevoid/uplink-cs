@@ -1,11 +1,17 @@
-﻿using System;
-
-public class IntComponent : Component
+﻿namespace Uplink
 {
-    public int? Number;
-
-    public IntComponent(string name, int number) : base(name)
+    public class IntComponent : Component
     {
-        Number = number;
+        public int? Number;
+
+        public IntComponent()
+        {
+            Number = 0;
+        }
+
+        public IntComponent(Guid author, string name, int number) : base(author, name)
+        {
+            Number = number;
+        }
     }
 }

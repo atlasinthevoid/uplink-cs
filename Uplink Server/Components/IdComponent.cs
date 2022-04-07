@@ -1,12 +1,17 @@
-﻿using System;
-using System.Numerics;
-
-public class IdComponent : Component
+﻿namespace Uplink
 {
-    public Guid? Id;
-
-    public IdComponent(string name, Guid id) : base(name)
+    public class IdComponent : Component
     {
-        Id = id;
+        public Guid? Value;
+
+        public IdComponent()
+        {
+            Value = Guid.Empty;
+        }
+
+        public IdComponent(Guid author, string name, Guid id) : base(author, name)
+        {
+            Value = id;
+        }
     }
 }

@@ -1,11 +1,17 @@
-﻿using System;
-
-public class ImageComponent : Component
+﻿namespace Uplink
 {
-    public byte[] Bytes;
-
-    public ImageComponent(string name, byte[] bytes) : base(name)
+    public class ImageComponent : Component
     {
-        Bytes = bytes;
+        public byte[] Bytes;
+
+        public ImageComponent()
+        {
+            Bytes = new byte[800];
+        }
+
+        public ImageComponent(Guid author, string name, byte[] bytes) : base(author, name)
+        {
+            Bytes = bytes;
+        }
     }
 }

@@ -1,35 +1,63 @@
-﻿public class State
+﻿namespace Uplink
 {
-    public Guid Id;
-    public EntityList Entities;
-    public EventList Events;
-
-    public State()
+    public class State
     {
-        Id = Guid.NewGuid();
-        Entities = new();
-        Events = new();
-    }
+        public Guid Id;
+        public List<Entity> Entities;
 
-    // Create EventObject and add to the local queue
-    public async Task<dynamic> CreateEvent(string type, Entity newObject)
-    {
-        if (!(type == "update" || type == "request" || type == "provide" || type == "clearCache"))
+        public State()
         {
-            return "invaild event type";
+            Id = Guid.NewGuid();
+            Entities = new();
         }
 
-        Event eventObject = new(Id, type, newObject);
-        Events.Add(eventObject);
+        public List<Guid> FindID(List<Component> componentList)
+        {
+            List<Guid> ids = new();
 
-        await eventObject.Task.Task;
-        if (type == "request")
-        {
-            return eventObject.Task.Task.Result;
+            foreach (Entity e in Entities)
+            {
+                // Prevent modifications to the list passed in
+                List<Component> searchComponents = componentList.ToList();
+                foreach (Component c in e.Components)
+                {
+                    foreach (Component cs in componentList)
+                    {
+                        if (cs.Name == c.Name && cs.GetType() == c.GetType())
+                        {
+                            searchComponents.Remove(cs);
+                        }
+                    }
+                }
+                if (searchComponents.Count <= 0)
+                {
+                    ids.Add(e.Id);
+                }
+            }
+            return ids;
         }
-        else
+
+        public List<Entity> GetEntity(List<Component> componentList)
         {
-            return eventObject;
+            List<Entity> entities = new();
+
+            List<Guid> list = FindID(componentList);
+            if (list.Count <= 0)
+            {
+                Console.WriteLine("No vaild ids found");
+            }
+
+            foreach (Guid id in list)
+            {
+                foreach (Entity e in Entities)
+                {
+                    if (e.Id == id)
+                    {
+                        entities.Add(e);
+                    }
+                }
+            }
+            return entities;
         }
     }
 }

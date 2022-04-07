@@ -1,36 +1,30 @@
 ﻿using System;
 using System.Collections;
 
-public class Entity : IEnumerable<KeyValuePair<string, Component>>
+namespace Uplink
 {
-    public Guid Id;
-    public Dictionary<string, Component> Components;
-
-    public Entity()
+    public class Entity
     {
-        Id = Guid.NewGuid();
-        Components = new();
-    }
+        public Guid Id;
+        public List<Component> Components;
 
-    public Entity(Entity entity)
-    {
-        Id = entity.Id;
-        Components = entity.Components;
-    }
+        public Entity()
+        {
+            Id = Guid.NewGuid();
+            Components = new();
+        }
 
-    public void Add(Component comp)
-    {
-        Components[comp.Name] = comp;
-        comp.EntityId = Id;
-    }
+        public Entity(Entity entity)
+        {
+            Id = entity.Id;
+            Components = entity.Components;
+        }
 
-    public IEnumerator<KeyValuePair<string, Component>> GetEnumerator()
-    {
-        return Components.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
+        public void Add(Component comp)
+        {
+            Components.Add(comp);
+            //Components[comp.Id] = comp;
+            comp.EntityId = Id;
+        }
     }
 }

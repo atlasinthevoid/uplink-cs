@@ -1,30 +1,47 @@
-﻿public class LoadingSystem : SystemComponent
+﻿using System.Xml.Serialization;
+
+namespace Uplink
 {
-    public LoadingSystem(string name, State state) : base(name, state)
+    public class LoadingSystem : SystemComponent
     {
-        LoadUniverseFromFile(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Uplink\");
-    }
-
-    public void Update()
-    {
-        Console.WriteLine("update");
-    }
-
-    void LoadUniverseFromFile(string directory)
-    {
-        Console.WriteLine("Loading universe from file...");
-        if (!File.Exists(directory + "Id.yaml")
-            || !File.Exists(directory + "Entities.yaml")
-            || !File.Exists(directory + "Events.yaml")
-            || !File.Exists(directory + "Index.yaml"))
+        public LoadingSystem()
         {
-            Event checkEvent = new(
-                EntityId, "update", new() { 
-                    new TextComponent("text", "universe save file not found") });
-            LocalState.Events.Add(checkEvent);
-            return;
+
         }
 
-        //File.ReadAllText(directory + "Objects.json")
+        public LoadingSystem(string name, State state) : base(name, state)
+        {
+            LoadUniverseFromFile(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Uplink\");
+        }
+
+        public void Update()
+        {
+
+        }
+
+        void LoadUniverseFromFile(string directory)
+        {
+            Console.WriteLine("Loading universe from file...");
+            if (!File.Exists(directory + "State.xml"))
+            {
+                Entity error = new Entity();
+                error.Add(new TextComponent(LocalState.Id, "text", "universe save file not found"));
+                LocalState.Entities.Add(error);
+                return;
+            }
+
+            XmlSerializer xmlSerializer = new XmlSerializer(LocalState.GetType());
+
+            using (FileStream fileStream = new FileStream(directory + "State.xml", FileMode.Open))
+            {
+                Object? newState = xmlSerializer.Deserialize(fileStream);
+                if (newState != null)
+                {
+                    State s = (State)newState;
+                    Console.WriteLine("Applying loaded state " + "(old " + LocalState.Entities.Count.ToString() + ") (new " + s.Entities.Count.ToString() + ")");
+                    LocalState = s;
+                }
+            }
+        }
     }
 }

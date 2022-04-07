@@ -1,11 +1,17 @@
-﻿using System;
-
-public class TextComponent : Component
+﻿namespace Uplink
 {
-    public string? Text;
-
-    public TextComponent(string name, string text) : base(name)
+    public class TextComponent : Component
     {
-        Text = text;
+        public string? Text;
+
+        public TextComponent()
+        {
+            Text = "";
+        }
+
+        public TextComponent(Guid author, string name, string text) : base(author, name)
+        {
+            Text = text;
+        }
     }
 }

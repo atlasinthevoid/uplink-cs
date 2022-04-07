@@ -1,9 +1,20 @@
-﻿public class SystemComponent : Component
-{
-    public State LocalState;
+﻿using System.Xml.Serialization;
 
-    public SystemComponent(string name, State state) : base(name)
+namespace Uplink
+{
+    public abstract class SystemComponent : Component
     {
-        LocalState = state;
+        [XmlIgnore]
+        public State LocalState;
+
+        public SystemComponent()
+        {
+            LocalState = new();
+        }
+
+        public SystemComponent(string name, State state) : base(state.Id, name)
+        {
+            LocalState = state;
+        }
     }
 }

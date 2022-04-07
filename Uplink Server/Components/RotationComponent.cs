@@ -1,12 +1,19 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 
-public class RotationComponent : Component
+namespace Uplink
 {
-    public Vector3? Number;
-
-    public RotationComponent(string name, Vector3 number) : base(name)
+    public class RotationComponent : Component
     {
-        Number = number;
+        public Vector3? Number;
+
+        public RotationComponent()
+        {
+            Number = Vector3.Zero;
+        }
+
+        public RotationComponent(Guid author, string name, Vector3 number) : base(author, name)
+        {
+            Number = number;
+        }
     }
 }

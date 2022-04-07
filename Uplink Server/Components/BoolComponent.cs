@@ -1,12 +1,17 @@
-﻿using System;
-using System.Numerics;
-
-public class BoolComponent : Component
+﻿namespace Uplink
 {
-    public bool? Flag;
-
-    public BoolComponent(string name, bool flag) : base(name)
+    public class BoolComponent : Component
     {
-        Flag = flag;
+        public bool? Flag;
+
+        public BoolComponent()
+        {
+            Flag = false;
+        }
+
+        public BoolComponent(Guid author, string name, bool flag) : base(author, name)
+        {
+            Flag = flag;
+        }
     }
 }

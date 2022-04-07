@@ -1,12 +1,20 @@
-﻿public class SocketSystem : SystemComponent
+﻿namespace Uplink
 {
-    public SocketSystem(string name, State state) : base(name, state)
+    public class SocketSystem : SystemComponent
     {
+        public SocketSystem()
+        {
 
-    }
+        }
 
-    public void Update()
-    {
-        Console.WriteLine("update");
+        public SocketSystem(string name, State state) : base(name, state)
+        {
+
+        }
+
+        public void Update()
+        {
+
+        }
     }
 }

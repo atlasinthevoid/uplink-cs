@@ -1,13 +1,20 @@
-﻿using System;
-
-public class FileComponent : Component
+﻿namespace Uplink
 {
-    public byte[] Bytes;
-    public string filePath;
-
-    public FileComponent(string name, byte[] bytes, string path) : base(name)
+    public class FileComponent : Component
     {
-        Bytes = bytes;
-        filePath = path;
+        public byte[] Bytes;
+        public string filePath;
+
+        public FileComponent()
+        {
+            Bytes = new byte[0];
+            filePath = "";
+        }
+
+        public FileComponent(Guid author, string name, byte[] bytes, string path) : base(author, name)
+        {
+            Bytes = bytes;
+            filePath = path;
+        }
     }
 }

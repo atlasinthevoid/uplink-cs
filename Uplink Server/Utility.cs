@@ -1,32 +1,53 @@
 ﻿using System;
+using System.Xml.Serialization;
 
-public static class Utility
+namespace Uplink
 {
-    public static string PrettyGuid(Guid id)
+    public static class Utility
     {
-        return id.ToString().Split("-")[0];
-    }
-
-    public static List<Guid> FindID(Dictionary<string, Component> componentList, State localState)
-    {
-        List<Guid> ids = new();
-
-        foreach (Entity e in localState.Entities.Dictionary.Values)
+        public static string PrettyGuid(Guid id)
         {
-            // Prevent modifications to the list passed in
-            List<string> searchTags = componentList.Keys.ToList();
-            foreach (Component c in e.Components.Values)
+            return id.ToString().Split("-")[0];
+        }
+
+        public static Entity CreateClient(State state)
+        {
+            Entity client = new();
+            client.Add(new AudioSystem("", state));
+            client.Add(new BoolSystem("", state));
+            client.Add(new BroadcastSystem("", state));
+            client.Add(new ComponentSystem("", state));
+            client.Add(new FileSystem("", state));
+            client.Add(new FloatSystem("", state));
+            client.Add(new IdSystem("", state));
+            client.Add(new ImageSystem("", state));
+            client.Add(new IntSystem("", state));
+            client.Add(new LoadingSystem("", state));
+            client.Add(new MeshSystem("", state));
+            client.Add(new PositionSystem("", state));
+            client.Add(new RotationSystem("", state));
+            client.Add(new SaveSystem("", state));
+            client.Add(new SocketSystem("", state));
+            client.Add(new StatusSystem("", state));
+            client.Add(new TerminalSystem("", state));
+            client.Add(new TextSystem("", state));
+            client.Add(new IdComponent(state.Id, "client", client.Id));
+            return client;
+        }
+
+        public static string SerializeObject<T>(this T toSerialize)
+        {
+            if (toSerialize != null)
             {
-                if (searchTags.Contains(c.Name) && c.GetType() == componentList[c.Name].GetType())
+                XmlSerializer xmlSerializer = new XmlSerializer(toSerialize.GetType());
+
+                using (StringWriter textWriter = new StringWriter())
                 {
-                    searchTags.Remove(c.Name);
+                    xmlSerializer.Serialize(textWriter, toSerialize);
+                    return textWriter.ToString();
                 }
             }
-            if (searchTags.Count <= 0)
-            {
-                ids.Add(e.Id);
-            }
+            return "";
         }
-        return ids;
     }
 }

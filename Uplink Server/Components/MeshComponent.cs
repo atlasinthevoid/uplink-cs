@@ -1,11 +1,17 @@
-﻿using System;
-
-public class MeshComponent : Component
+﻿namespace Uplink
 {
-    public byte[] Bytes;
-
-    public MeshComponent(string name, byte[] bytes) : base(name)
+    public class MeshComponent : Component
     {
-        Bytes = bytes;
+        public byte[] Bytes;
+
+        public MeshComponent()
+        {
+            Bytes = new byte[4];
+        }
+
+        public MeshComponent(Guid author, string name, byte[] bytes) : base(author, name)
+        {
+            Bytes = bytes;
+        }
     }
 }
