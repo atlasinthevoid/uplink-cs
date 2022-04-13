@@ -1,17 +1,23 @@
-﻿namespace Uplink
+﻿using System.Collections.Immutable;
+
+namespace Uplink
 {
     public class ImageComponent : Component
     {
-        public byte[] Bytes;
+        public ImmutableArray<byte> Bytes
+        {
+            get;
+            init;
+        }
 
         public ImageComponent()
         {
-            Bytes = new byte[800];
+            Bytes = new();
         }
 
-        public ImageComponent(Guid author, string name, byte[] bytes) : base(author, name)
+        public override void Update()
         {
-            Bytes = bytes;
+            
         }
     }
 }

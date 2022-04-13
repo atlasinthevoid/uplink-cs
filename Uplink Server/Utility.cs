@@ -10,28 +10,30 @@ namespace Uplink
             return id.ToString().Split("-")[0];
         }
 
-        public static Entity CreateClient(State state)
+        public static Entity CreateClient()
         {
             Entity client = new();
-            client.Add(new AudioSystem("", state));
-            client.Add(new BoolSystem("", state));
-            client.Add(new BroadcastSystem("", state));
-            client.Add(new ComponentSystem("", state));
-            client.Add(new FileSystem("", state));
-            client.Add(new FloatSystem("", state));
-            client.Add(new IdSystem("", state));
-            client.Add(new ImageSystem("", state));
-            client.Add(new IntSystem("", state));
-            client.Add(new LoadingSystem("", state));
-            client.Add(new MeshSystem("", state));
-            client.Add(new PositionSystem("", state));
-            client.Add(new RotationSystem("", state));
-            client.Add(new SaveSystem("", state));
-            client.Add(new SocketSystem("", state));
-            client.Add(new StatusSystem("", state));
-            client.Add(new TerminalSystem("", state));
-            client.Add(new TextSystem("", state));
-            client.Add(new IdComponent(state.Id, "client", client.Id));
+            client.Add(new StateComponent());
+            client.Add(new AudioComponent());
+            client.Add(new BoolComponent());
+            client.Add(new BroadcastComponent());
+            client.Add(new FileComponent());
+            client.Add(new FloatComponent());
+            client.Add(new IdComponent());
+            client.Add(new ImageComponent());
+            client.Add(new IntComponent());
+            client.Add(new LoadingComponent());
+            client.Add(new MeshComponent());
+            client.Add(new PositionComponent());
+            client.Add(new RotationComponent());
+            client.Add(new SaveComponent());
+            client.Add(new SocketComponent());
+            client.Add(new StatusComponent());
+            client.Add(new TerminalComponent());
+            client.Add(new TextComponent());
+            client.Add(new TimeComponent());
+            client.Add(new IdComponent() { Name = "client"});
+            client.Add(new StateComponent());
             return client;
         }
 

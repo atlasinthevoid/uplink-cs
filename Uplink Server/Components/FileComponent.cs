@@ -1,20 +1,30 @@
-﻿namespace Uplink
+﻿using System.Collections.Immutable;
+
+namespace Uplink
 {
     public class FileComponent : Component
     {
-        public byte[] Bytes;
-        public string filePath;
+        public ImmutableArray<byte> Bytes
+        {
+            get;
+            init;
+        }
+
+        public string FilePath
+        {
+            get;
+            init;
+        }
 
         public FileComponent()
         {
-            Bytes = new byte[0];
-            filePath = "";
+            Bytes = new();
+            FilePath = "";
         }
 
-        public FileComponent(Guid author, string name, byte[] bytes, string path) : base(author, name)
+        public override void Update()
         {
-            Bytes = bytes;
-            filePath = path;
+            
         }
     }
 }

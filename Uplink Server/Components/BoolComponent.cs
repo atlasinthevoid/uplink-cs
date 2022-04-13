@@ -2,16 +2,20 @@
 {
     public class BoolComponent : Component
     {
-        public bool? Flag;
+        public bool Flag
+        {
+            get;
+            init;
+        }
 
         public BoolComponent()
         {
             Flag = false;
         }
 
-        public BoolComponent(Guid author, string name, bool flag) : base(author, name)
+        public override void Update()
         {
-            Flag = flag;
+            
         }
     }
 }

@@ -2,16 +2,20 @@
 {
     public class IntComponent : Component
     {
-        public int? Number;
+        public int Number
+        {
+            get;
+            init;
+        }
 
         public IntComponent()
         {
             Number = 0;
         }
 
-        public IntComponent(Guid author, string name, int number) : base(author, name)
+        public override void Update()
         {
-            Number = number;
+
         }
     }
 }

@@ -2,16 +2,20 @@
 {
     public class IdComponent : Component
     {
-        public Guid? Value;
+        public Guid Value
+        {
+            get;
+            init;
+        }
 
         public IdComponent()
         {
             Value = Guid.Empty;
         }
 
-        public IdComponent(Guid author, string name, Guid id) : base(author, name)
+        public override void Update()
         {
-            Value = id;
+            
         }
     }
 }

@@ -2,18 +2,35 @@
 {
     public class BroadcastComponent : Component
     {
-        public Guid EventId;
-        public bool Broadcasted;
+        public Guid EventId
+        {
+            get;
+            init;
+        }
+
+        public bool Broadcasted
+        {
+            get;
+            init;
+        }
 
         public BroadcastComponent()
         {
             EventId = Guid.Empty;
         }
 
-        public BroadcastComponent(Guid author, string name, Guid eventId) : base(author, name)
+        public override void Update()
         {
-            EventId = eventId;
-            Broadcasted = false;
+            if (!Broadcasted)
+            {
+                BroadcastEvent();
+                //Broadcasted = true;
+            }
+        }
+
+        public void BroadcastEvent()
+        {
+
         }
     }
 }

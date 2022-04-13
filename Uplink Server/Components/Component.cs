@@ -20,35 +20,52 @@ namespace Uplink
     [XmlInclude(typeof(StatusComponent))]
     [XmlInclude(typeof(TerminalComponent))]
     [XmlInclude(typeof(TextComponent))]
-    [XmlInclude(typeof(AudioSystem))]
-    [XmlInclude(typeof(BoolSystem))]
-    [XmlInclude(typeof(BroadcastSystem))]
-    [XmlInclude(typeof(ComponentSystem))]
-    [XmlInclude(typeof(FileSystem))]
-    [XmlInclude(typeof(FloatSystem))]
-    [XmlInclude(typeof(IdSystem))]
-    [XmlInclude(typeof(ImageSystem))]
-    [XmlInclude(typeof(IntSystem))]
-    [XmlInclude(typeof(LoadingSystem))]
-    [XmlInclude(typeof(MeshSystem))]
-    [XmlInclude(typeof(PositionSystem))]
-    [XmlInclude(typeof(RotationSystem))]
-    [XmlInclude(typeof(SaveSystem))]
-    [XmlInclude(typeof(SocketSystem))]
-    [XmlInclude(typeof(StatusSystem))]
-    [XmlInclude(typeof(TerminalSystem))]
-    [XmlInclude(typeof(TextSystem))]
+    [XmlInclude(typeof(TimeComponent))]
+    [XmlInclude(typeof(StateComponent))]
+
+    // Immutable class
     public abstract class Component
     {
-        public Guid Id;
-        public Guid EntityId;
-        public string Name;
-        public DateTime Time;
-        public Guid Author;
-        public bool Active;
+        public event EventHandler<Entity>? AddEntityEvent;
+        public event EventHandler<(Entity, Component)>? AddComponentEvent;
+        public event EventHandler<Guid>? GetEntityByIdEvent;
+        public event EventHandler<(Guid)>? GetComponentByIdEvent;
+        public event EventHandler<(string)>? GetComponentByNameEvent;
+
+
+        public Guid Id
+        {
+            get;
+            init;
+        }
+
+        public string Name
+        {
+            get;
+            init;
+        }
+
+        public DateTime Time
+        {
+            get;
+            init;
+        }
+
+        public Guid Author
+        {
+            get;
+            init;
+        }
+
+        public bool Active
+        {
+            get;
+            init;
+        }
 
         public Component()
         {
+            //AddEntity += new AddEntityHandler(RaiseAddEntity);
             Id = Guid.NewGuid();
             Name = "";
             Time = DateTime.Now;
@@ -56,13 +73,18 @@ namespace Uplink
             Active = true;
         }
 
-        public Component(Guid author, string name)
+        protected virtual void AddEntity(object sender, Entity entity)
         {
-            Id = Guid.NewGuid();
-            Name = name;
-            Time = DateTime.Now;
-            Author = author;
-            Active = true;
+            // Raise the event in a thread-safe manner using the ?. operator.
+            AddEntityEvent?.Invoke(this, entity);
         }
+
+        protected virtual void AddComponent(object sender, Component component)
+        {
+            // Raise the event in a thread-safe manner using the ?. operator.
+            AddComponentEvent?.Invoke(this, component);
+        }
+
+        public abstract void Update();
     }
 }

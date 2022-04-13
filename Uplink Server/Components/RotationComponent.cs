@@ -4,16 +4,20 @@ namespace Uplink
 {
     public class RotationComponent : Component
     {
-        public Vector3? Number;
+        public Vector3 Number
+        {
+            get;
+            init;
+        }
 
         public RotationComponent()
         {
             Number = Vector3.Zero;
         }
 
-        public RotationComponent(Guid author, string name, Vector3 number) : base(author, name)
+        public override void Update()
         {
-            Number = number;
+            
         }
     }
 }

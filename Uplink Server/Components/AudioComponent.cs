@@ -1,16 +1,23 @@
-﻿namespace Uplink
+﻿using System.Collections.Immutable;
+
+namespace Uplink
 {
     public class AudioComponent : Component
     {
-        public byte[] Bytes;
+        public ImmutableArray<byte> Bytes
+        {
+            get;
+            init;
+        }
 
         public AudioComponent()
         {
-            Bytes = new byte[800];
+            Bytes = new();
         }
-        public AudioComponent(Guid author, string name, byte[] bytes) : base(author, name)
+
+        public override void Update()
         {
-            Bytes = bytes;
+
         }
     }
 }

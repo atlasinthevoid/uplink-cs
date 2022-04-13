@@ -9,9 +9,9 @@
             Text = "";
         }
 
-        public TextComponent(Guid author, string name, string text) : base(author, name)
+        public override void Update()
         {
-            Text = text;
+            
         }
     }
 }

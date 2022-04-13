@@ -2,16 +2,20 @@
 {
     public class MeshComponent : Component
     {
-        public byte[] Bytes;
+        public byte[] Bytes
+        {
+            get;
+            init;
+        }
 
         public MeshComponent()
         {
             Bytes = new byte[4];
         }
 
-        public MeshComponent(Guid author, string name, byte[] bytes) : base(author, name)
+        public override void Update()
         {
-            Bytes = bytes;
+            
         }
     }
 }
