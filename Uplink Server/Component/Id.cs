@@ -1,6 +1,6 @@
-﻿namespace Uplink
+﻿namespace Uplink.Component
 {
-    public class IdComponent : Component
+    public class Id : Component
     {
         public Guid Value
         {
@@ -8,7 +8,7 @@
             init;
         }
 
-        public IdComponent()
+        public Id()
         {
             Value = Guid.Empty;
         }

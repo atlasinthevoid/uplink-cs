@@ -2,7 +2,7 @@
 
 namespace Uplink
 {
-    public class FileComponent : Component
+    public class Audio : Component
     {
         public ImmutableArray<byte> Bytes
         {
@@ -10,21 +10,14 @@ namespace Uplink
             init;
         }
 
-        public string FilePath
-        {
-            get;
-            init;
-        }
-
-        public FileComponent()
+        public Audio()
         {
             Bytes = new();
-            FilePath = "";
         }
 
         public override void Update()
         {
-            
+
         }
     }
 }

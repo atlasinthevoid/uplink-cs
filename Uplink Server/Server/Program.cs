@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text.Json;
-using System.Xml.Serialization;
-
-namespace Uplink
+﻿namespace Uplink.Component.Server
 {
     public class Program
     {
@@ -30,7 +24,7 @@ namespace Uplink
             };
             client.Add(tt);
 
-            StatusComponent status = new();
+            Status status = new();
             client.Add(status);
 
             bool running = true;
@@ -42,7 +36,6 @@ namespace Uplink
                     component.Update();
                 }
             }
-
         }
     }
 }

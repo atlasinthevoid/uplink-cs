@@ -1,18 +1,9 @@
-﻿using System;
-using System.Xml.Serialization;
-
-namespace Uplink
+﻿namespace Uplink.Entity
 {
-    public static class Utility
+    public class Client : Entity
     {
-        public static string PrettyGuid(Guid id)
+        public Client()
         {
-            return id.ToString().Split("-")[0];
-        }
-
-        public static Entity CreateClient()
-        {
-            Entity client = new();
             client.Add(new StateComponent());
             client.Add(new AudioComponent());
             client.Add(new BoolComponent());
@@ -32,24 +23,8 @@ namespace Uplink
             client.Add(new TerminalComponent());
             client.Add(new TextComponent());
             client.Add(new TimeComponent());
-            client.Add(new IdComponent() { Name = "client"});
+            client.Add(new IdComponent() { Name = "client" });
             client.Add(new StateComponent());
-            return client;
-        }
-
-        public static string SerializeObject<T>(this T toSerialize)
-        {
-            if (toSerialize != null)
-            {
-                XmlSerializer xmlSerializer = new XmlSerializer(toSerialize.GetType());
-
-                using (StringWriter textWriter = new StringWriter())
-                {
-                    xmlSerializer.Serialize(textWriter, toSerialize);
-                    return textWriter.ToString();
-                }
-            }
-            return "";
         }
     }
 }

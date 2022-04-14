@@ -3,25 +3,25 @@
 namespace Uplink
 {
     [XmlRoot(Namespace = "Uplink")]
-    [XmlInclude(typeof(AudioComponent))]
-    [XmlInclude(typeof(BoolComponent))]
-    [XmlInclude(typeof(BroadcastComponent))]
-    [XmlInclude(typeof(FileComponent))]
-    [XmlInclude(typeof(FloatComponent))]
-    [XmlInclude(typeof(IdComponent))]
-    [XmlInclude(typeof(ImageComponent))]
-    [XmlInclude(typeof(IntComponent))]
-    [XmlInclude(typeof(LoadingComponent))]
-    [XmlInclude(typeof(MeshComponent))]
-    [XmlInclude(typeof(PositionComponent))]
-    [XmlInclude(typeof(RotationComponent))]
-    [XmlInclude(typeof(SaveComponent))]
-    [XmlInclude(typeof(SocketComponent))]
-    [XmlInclude(typeof(StatusComponent))]
-    [XmlInclude(typeof(TerminalComponent))]
-    [XmlInclude(typeof(TextComponent))]
-    [XmlInclude(typeof(TimeComponent))]
-    [XmlInclude(typeof(StateComponent))]
+    [XmlInclude(typeof(Audio))]
+    [XmlInclude(typeof(Bool))]
+    [XmlInclude(typeof(Broadcast))]
+    [XmlInclude(typeof(File))]
+    [XmlInclude(typeof(Float))]
+    [XmlInclude(typeof(Id))]
+    [XmlInclude(typeof(Image))]
+    [XmlInclude(typeof(Int))]
+    [XmlInclude(typeof(Loading))]
+    [XmlInclude(typeof(Mesh))]
+    [XmlInclude(typeof(Position))]
+    [XmlInclude(typeof(Rotation))]
+    [XmlInclude(typeof(Save))]
+    [XmlInclude(typeof(Socket))]
+    [XmlInclude(typeof(Status))]
+    [XmlInclude(typeof(Terminal))]
+    [XmlInclude(typeof(Text))]
+    [XmlInclude(typeof(Time))]
+    [XmlInclude(typeof(State))]
 
     // Immutable class
     public abstract class Component
@@ -32,6 +32,11 @@ namespace Uplink
         public event EventHandler<(Guid)>? GetComponentByIdEvent;
         public event EventHandler<(string)>? GetComponentByNameEvent;
 
+        public Guid Entity
+        {
+            get;
+            init;
+        }
 
         public Guid Id
         {

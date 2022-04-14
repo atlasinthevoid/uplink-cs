@@ -25,7 +25,7 @@ namespace Uplink
                 return;
             }
 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(StateComponent));
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(State));
 
             using (FileStream fileStream = new FileStream(directory + "State.xml", FileMode.Open))
             {/*
