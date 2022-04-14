@@ -1,6 +1,6 @@
-﻿namespace Uplink
+﻿namespace Uplink.Component
 {
-    public class FloatComponent : Component
+    public class Float : Component
     {
         public float Number
         {
@@ -8,7 +8,7 @@
             init;
         }
 
-        public FloatComponent()
+        public Float()
         {
             Number = 0.0f;
         }

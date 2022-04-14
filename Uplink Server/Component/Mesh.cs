@@ -1,6 +1,6 @@
-﻿namespace Uplink
+﻿namespace Uplink.Component
 {
-    public class MeshComponent : Component
+    public class Mesh : Component
     {
         public byte[] Bytes
         {
@@ -8,7 +8,7 @@
             init;
         }
 
-        public MeshComponent()
+        public Mesh()
         {
             Bytes = new byte[4];
         }

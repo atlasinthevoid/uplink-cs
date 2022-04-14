@@ -1,12 +1,16 @@
-﻿namespace Uplink
+﻿namespace Uplink.Component
 {
-    public class TextComponent : Component
+    public class Text : Component
     {
-        public string? Text;
-
-        public TextComponent()
+        public string Value
         {
-            Text = "";
+            get;
+            init;
+        }
+
+        public Text()
+        {
+            Value = "";
         }
 
         public override void Update()

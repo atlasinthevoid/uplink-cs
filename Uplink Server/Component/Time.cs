@@ -1,14 +1,34 @@
-﻿namespace Uplink
+﻿namespace Uplink.Component
 {
-    public class TimeComponent : Component
+    public class Time : Component
     {
-        public DateTime Value;
-        public bool Timer;
-        public bool Clock;
-        public int SecondsToUpdate;
-        public bool TimeElapsed;
+        public DateTime Value
+        {
+            get;
+            init;
+        }
+        public bool Timer
+        {
+            get;
+            init;
+        }
+        public bool Clock
+        {
+            get;
+            init;
+        }
+        public int SecondsToUpdate
+        {
+            get;
+            init;
+        }
+        public bool TimeElapsed
+        {
+            get;
+            init;
+        }
 
-        public TimeComponent()
+        public Time()
         {
             Time = DateTime.Now;
         }

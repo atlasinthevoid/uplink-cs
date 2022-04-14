@@ -1,8 +1,8 @@
-﻿namespace Uplink
+﻿namespace Uplink.Component
 {
-    public class BroadcastComponent : Component
+    public class Broadcast : Component
     {
-        public Guid EventId
+        public System.Guid EventId
         {
             get;
             init;
@@ -14,9 +14,9 @@
             init;
         }
 
-        public BroadcastComponent()
+        public Broadcast()
         {
-            EventId = Guid.Empty;
+            EventId = System.Guid.Empty;
         }
 
         public override void Update()

@@ -4,27 +4,24 @@
     {
         public Client()
         {
-            client.Add(new StateComponent());
-            client.Add(new AudioComponent());
-            client.Add(new BoolComponent());
-            client.Add(new BroadcastComponent());
-            client.Add(new FileComponent());
-            client.Add(new FloatComponent());
-            client.Add(new IdComponent());
-            client.Add(new ImageComponent());
-            client.Add(new IntComponent());
-            client.Add(new LoadingComponent());
-            client.Add(new MeshComponent());
-            client.Add(new PositionComponent());
-            client.Add(new RotationComponent());
-            client.Add(new SaveComponent());
-            client.Add(new SocketComponent());
-            client.Add(new StatusComponent());
-            client.Add(new TerminalComponent());
-            client.Add(new TextComponent());
-            client.Add(new TimeComponent());
-            client.Add(new IdComponent() { Name = "client" });
-            client.Add(new StateComponent());
+            _ = new Component.Audio() { Entity = Id };
+            _ = new Component.Bool() { Entity = Id };
+            _ = new Component.Broadcast() { Entity = Id };
+            _ = new Component.File() { Entity = Id };
+            _ = new Component.Float() { Entity = Id };
+            _ = new Component.Id() { Entity = Id };
+            _ = new Component.Image() { Entity = Id };
+            _ = new Component.Int() { Entity = Id };
+            _ = new Component.Loading() { Entity = Id };
+            _ = new Component.Mesh() { Entity = Id };
+            _ = new Component.Position() { Entity = Id };
+            _ = new Component.Rotation() { Entity = Id };
+            _ = new Component.Save() { Entity = Id };
+            _ = new Component.Socket() { Entity = Id };
+            _ = new Component.Status() { Entity = Id };
+            _ = new Component.Terminal() { Entity = Id };
+            _ = new Component.Text() { Entity = Id };
+            _ = new Component.Time() { Entity = Id };
         }
     }
 }

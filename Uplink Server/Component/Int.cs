@@ -1,6 +1,6 @@
-﻿namespace Uplink
+﻿namespace Uplink.Component
 {
-    public class IntComponent : Component
+    public class Int : Component
     {
         public int Number
         {
@@ -8,7 +8,7 @@
             init;
         }
 
-        public IntComponent()
+        public Int()
         {
             Number = 0;
         }

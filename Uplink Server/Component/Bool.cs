@@ -1,6 +1,6 @@
-﻿namespace Uplink
+﻿namespace Uplink.Component
 {
-    public class BoolComponent : Component
+    public class Bool : Component
     {
         public bool Flag
         {
@@ -8,7 +8,7 @@
             init;
         }
 
-        public BoolComponent()
+        public Bool()
         {
             Flag = false;
         }

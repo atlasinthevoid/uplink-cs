@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Uplink
+namespace Uplink.Component
 {
     public class State
     {

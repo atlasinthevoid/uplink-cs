@@ -2,13 +2,24 @@
 {
     public abstract class Entity
     {
-        Type.Id Id;
-        List<Component.Component> components;
+        public Type.Id Id;
 
         public Entity()
         {
             Id = new();
-            components = new();
+            Components = new();
+        }
+
+        public List<Component.Component> GetComponents()
+        {
+            // Call event
+            return new();
+        }
+
+        public List<Component.Component> GetComponentByName()
+        {
+            // Call event
+            return new();
         }
     }
 }

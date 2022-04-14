@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Uplink
+namespace Uplink.Component
 {
     [XmlRoot(Namespace = "Uplink")]
     [XmlInclude(typeof(Audio))]
@@ -8,7 +8,7 @@ namespace Uplink
     [XmlInclude(typeof(Broadcast))]
     [XmlInclude(typeof(File))]
     [XmlInclude(typeof(Float))]
-    [XmlInclude(typeof(Id))]
+    [XmlInclude(typeof(Guid))]
     [XmlInclude(typeof(Image))]
     [XmlInclude(typeof(Int))]
     [XmlInclude(typeof(Loading))]
@@ -26,19 +26,19 @@ namespace Uplink
     // Immutable class
     public abstract class Component
     {
-        public event EventHandler<Entity>? AddEntityEvent;
-        public event EventHandler<(Entity, Component)>? AddComponentEvent;
-        public event EventHandler<Guid>? GetEntityByIdEvent;
-        public event EventHandler<(Guid)>? GetComponentByIdEvent;
-        public event EventHandler<(string)>? GetComponentByNameEvent;
+        // Can be added like this: AddEntity += new AddEntityHandler(RaiseAddEntity);
+        public event EventHandler? CreateComponentEvent;
+        public event EventHandler<(Type.Id, Entity.Entity)>? GetEntityByIdEvent;
+        public event EventHandler<(Type.Id, Component)>? GetComponentByIdEvent;
+        public event EventHandler<(string, Component)>? GetComponentByNameEvent;
 
-        public Guid Entity
+        public Type.Id Entity
         {
             get;
             init;
         }
 
-        public Guid Id
+        public Type.Id Id
         {
             get;
             init;
@@ -56,7 +56,7 @@ namespace Uplink
             init;
         }
 
-        public Guid Author
+        public Type.Id Author
         {
             get;
             init;
@@ -70,24 +70,18 @@ namespace Uplink
 
         public Component()
         {
-            //AddEntity += new AddEntityHandler(RaiseAddEntity);
-            Id = Guid.NewGuid();
+            Entity = new();
+            Id = new();
             Name = "";
             Time = DateTime.Now;
-            Author = Guid.Empty;
+            Author = new(true);
             Active = true;
         }
 
-        protected virtual void AddEntity(object sender, Entity entity)
+        protected virtual void AddComponent(object sender)
         {
             // Raise the event in a thread-safe manner using the ?. operator.
-            AddEntityEvent?.Invoke(this, entity);
-        }
-
-        protected virtual void AddComponent(object sender, Component component)
-        {
-            // Raise the event in a thread-safe manner using the ?. operator.
-            AddComponentEvent?.Invoke(this, component);
+            CreateComponentEvent?.Invoke(sender, new EventArgs());
         }
 
         public abstract void Update();

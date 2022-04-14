@@ -6,26 +6,29 @@
         {
             Console.WriteLine("Atlas' Uplink universe server");
 
-            Entity client = Utility.CreateClient();
+            State state = new();
+            Entity.Client client = new();
 
-            TimeComponent t = new() {
+            Time t = new() {
+                Entity = client.Id,
                 Name = "clock",
                 Timer = true,
                 Clock = true,
                 SecondsToUpdate = 10
             };
-            client.Add(t);
 
-            TimeComponent tt = new()
+            Time tt = new()
             {
+                Entity = client.Id
                 Name = "status message",
                 Timer = true,
                 SecondsToUpdate = 10
             };
-            client.Add(tt);
 
-            Status status = new();
-            client.Add(status);
+            Status status = new()
+            {
+                Entity = client.Id
+            };
 
             bool running = true;
             while (running)

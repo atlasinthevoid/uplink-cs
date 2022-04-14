@@ -1,6 +1,6 @@
 ﻿using System.Collections.Immutable;
 
-namespace Uplink
+namespace Uplink.Component
 {
     public class File : Component
     {

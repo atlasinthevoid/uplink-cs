@@ -1,8 +1,8 @@
 ﻿using System.Xml.Serialization;
 
-namespace Uplink
+namespace Uplink.Component
 {
-    public class SaveComponent : Component
+    public class Save : Component
     {
         public bool SaveToFile
         {
@@ -10,7 +10,7 @@ namespace Uplink
             init;
         }
 
-        public SaveComponent()
+        public Save()
         {
             
         }
@@ -33,7 +33,7 @@ namespace Uplink
             System.IO.Directory.CreateDirectory(directory);
 
             string serialisedState = Utility.SerializeObject<State>(Parent.ByName<State>()[0]);
-            File.WriteAllText(directory + "State.xml", serialisedState);
+            System.IO.File.WriteAllText(directory + "State.xml", serialisedState);
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(State));
 

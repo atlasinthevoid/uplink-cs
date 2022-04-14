@@ -1,11 +1,11 @@
 ﻿using WebSocketSharp;
 using WebSocketSharp.Server;
 
-namespace Uplink
+namespace Uplink.Component
 {
-    public class SocketComponent : Component
+    public class Socket : Component
     {
-        public SocketComponent()
+        public Socket()
         {
             CreateServer();
             CreateClient();

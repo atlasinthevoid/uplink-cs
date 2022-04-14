@@ -4,9 +4,14 @@
     {
         private System.Guid id;
 
-        public Id()
+        public Id(bool empty = false)
         {
-            guid = System.Guid.NewGuid();
+            if (empty)
+            {
+                this.id = Guid.Empty;
+            } else {
+                id = System.Guid.NewGuid();
+            }
         }
 
         public string ShortGuid()
