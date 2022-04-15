@@ -1,16 +1,16 @@
-﻿namespace Uplink.Component
+﻿namespace Uplink.Capability
 {
-    public class Id : Component
+    public class Float : Capability
     {
-        public Guid Value
+        public float Number
         {
             get;
             init;
         }
 
-        public Id()
+        public Float()
         {
-            Value = Guid.Empty;
+            Number = 0.0f;
         }
 
         public override void Update()

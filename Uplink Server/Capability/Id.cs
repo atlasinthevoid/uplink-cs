@@ -1,16 +1,16 @@
-﻿namespace Uplink.Component
+﻿namespace Uplink.Capability
 {
-    public class Mesh : Component
+    public class Id : Capability
     {
-        public byte[] Bytes
+        public Guid Value
         {
             get;
             init;
         }
 
-        public Mesh()
+        public Id()
         {
-            Bytes = new byte[4];
+            Value = Guid.Empty;
         }
 
         public override void Update()

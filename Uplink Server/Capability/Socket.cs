@@ -1,9 +1,10 @@
-﻿using WebSocketSharp;
+﻿using Uplink.Program;
+using WebSocketSharp;
 using WebSocketSharp.Server;
 
-namespace Uplink.Component
+namespace Uplink.Capability
 {
-    public class Socket : Component
+    public class Socket : Capability
     {
         public Socket()
         {
@@ -39,8 +40,7 @@ namespace Uplink.Component
             // Sync
 
             ws.Connect();
-            Entity e = new();
-            ws.Send(Utility.SerializeObject<Entity>(new()));
+            ws.Send(new Capability().SerializeObject());
         }
 
         public void StopClient()

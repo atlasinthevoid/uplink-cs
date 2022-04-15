@@ -1,8 +1,8 @@
 ﻿using System.Collections.Immutable;
 
-namespace Uplink.Component
+namespace Uplink.Capability
 {
-    public class File : Component
+    public class Audio : Capability
     {
         public ImmutableArray<byte> Bytes
         {
@@ -10,21 +10,14 @@ namespace Uplink.Component
             init;
         }
 
-        public string FilePath
-        {
-            get;
-            init;
-        }
-
-        public File()
+        public Audio()
         {
             Bytes = new();
-            FilePath = "";
         }
 
         public override void Update()
         {
-            
+
         }
     }
 }

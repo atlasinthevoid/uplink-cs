@@ -1,6 +1,8 @@
-﻿namespace Uplink.Component.Server
+﻿using System.Xml.Serialization;
+
+namespace Uplink.Program
 {
-    public class Program
+    public static class Program
     {
         static void Main()
         {
@@ -9,7 +11,8 @@
             State state = new();
             Entity.Client client = new();
 
-            Time t = new() {
+            Time t = new()
+            {
                 Entity = client.Id,
                 Name = "clock",
                 Timer = true,
@@ -19,7 +22,7 @@
 
             Time tt = new()
             {
-                Entity = client.Id
+                Entity = client.Id,
                 Name = "status message",
                 Timer = true,
                 SecondsToUpdate = 10
@@ -33,12 +36,27 @@
             bool running = true;
             while (running)
             {
-                foreach (dynamic component in client.Components)
+                foreach (Capability.Capability component in state.GetComponents())
                 {
                     //Console.WriteLine(component.GetType().FullName);
                     component.Update();
                 }
             }
+        }
+
+        public static string SerializeObject<T>(this T toSerialize)
+        {
+            if (toSerialize != null)
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(toSerialize.GetType());
+
+                using (StringWriter textWriter = new StringWriter())
+                {
+                    xmlSerializer.Serialize(textWriter, toSerialize);
+                    return textWriter.ToString();
+                }
+            }
+            return "";
         }
     }
 }

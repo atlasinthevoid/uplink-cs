@@ -1,8 +1,8 @@
 ﻿using System.Xml.Serialization;
 
-namespace Uplink.Component
+namespace Uplink.Capability
 {
-    public class Loading : Component
+    public class Loading : Capability
     {
         public Loading()
         {
@@ -19,9 +19,7 @@ namespace Uplink.Component
             Console.WriteLine("Loading universe from file...");
             if (!System.IO.File.Exists(directory + "State.xml"))
             {
-                Entity error = new Entity();
-                Add(new Text() { Text = "universe save file not found" });
-                RaiseAddEntity(error);
+                new Text() { Name = "error", Value = "universe save file not found" };
                 return;
             }
 

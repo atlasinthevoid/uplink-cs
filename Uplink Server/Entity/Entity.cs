@@ -1,25 +1,24 @@
 ﻿namespace Uplink.Entity
 {
-    public abstract class Entity
+    public class Entity
     {
-        public Type.Id Id;
+        public Type.Id Id
+        {
+            get;
+            init;
+        }
+        public Type.Capabilities Capabilities;
 
         public Entity()
         {
             Id = new();
-            Components = new();
+            Capabilities = new();
         }
 
-        public List<Component.Component> GetComponents()
+        public void Add(Capability.Capability capability)
         {
-            // Call event
-            return new();
-        }
-
-        public List<Component.Component> GetComponentByName()
-        {
-            // Call event
-            return new();
+            Capabilities.Add(capability);
+            capability.Metadata.Add(new Type.Parent() { Value = this; })
         }
     }
 }

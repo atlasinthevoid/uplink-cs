@@ -1,16 +1,16 @@
-﻿namespace Uplink.Component
+﻿namespace Uplink.Capability
 {
-    public class Float : Component
+    public class Bool : Capability
     {
-        public float Number
+        public bool Flag
         {
             get;
             init;
         }
 
-        public Float()
+        public Bool()
         {
-            Number = 0.0f;
+            Flag = false;
         }
 
         public override void Update()

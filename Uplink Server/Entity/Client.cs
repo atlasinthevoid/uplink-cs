@@ -4,24 +4,24 @@
     {
         public Client()
         {
-            _ = new Component.Audio() { Entity = Id };
-            _ = new Component.Bool() { Entity = Id };
-            _ = new Component.Broadcast() { Entity = Id };
-            _ = new Component.File() { Entity = Id };
-            _ = new Component.Float() { Entity = Id };
-            _ = new Component.Id() { Entity = Id };
-            _ = new Component.Image() { Entity = Id };
-            _ = new Component.Int() { Entity = Id };
-            _ = new Component.Loading() { Entity = Id };
-            _ = new Component.Mesh() { Entity = Id };
-            _ = new Component.Position() { Entity = Id };
-            _ = new Component.Rotation() { Entity = Id };
-            _ = new Component.Save() { Entity = Id };
-            _ = new Component.Socket() { Entity = Id };
-            _ = new Component.Status() { Entity = Id };
-            _ = new Component.Terminal() { Entity = Id };
-            _ = new Component.Text() { Entity = Id };
-            _ = new Component.Time() { Entity = Id };
+            Add(new Capability.Audio());
+            Add(new Capability.Bool());
+            Add(new Capability.Broadcast());
+            Add(new Capability.File());
+            Add(new Capability.Float());
+            Add(new Capability.Id());
+            Add(new Capability.Image());
+            Add(new Capability.Int());
+            Add(new Capability.Loading());
+            Add(new Capability.Mesh());
+            Add(new Capability.Position());
+            Add(new Capability.Rotation());
+            Add(new Capability.Save());
+            Add(new Capability.Socket());
+            Add(new Capability.Status());
+            Add(new Capability.Terminal());
+            Add(new Capability.Text());
+            Add(new Capability.Time());
         }
     }
 }

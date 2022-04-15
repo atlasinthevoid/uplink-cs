@@ -1,8 +1,8 @@
 ﻿using System.Numerics;
 
-namespace Uplink.Component
+namespace Uplink.Capability
 {
-    public class Position : Component
+    public class Rotation : Capability
     {
         public Vector3 Number
         {
@@ -10,7 +10,7 @@ namespace Uplink.Component
             init;
         }
 
-        public Position()
+        public Rotation()
         {
             Number = Vector3.Zero;
         }

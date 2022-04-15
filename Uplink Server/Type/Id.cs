@@ -1,6 +1,6 @@
 ﻿namespace Uplink.Type
 {
-    public class Id
+    public class Id : Type
     {
         private System.Guid id;
 

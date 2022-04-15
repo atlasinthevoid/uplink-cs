@@ -1,16 +1,16 @@
-﻿namespace Uplink.Component
+﻿namespace Uplink.Capability
 {
-    public class Bool : Component
+    public class Mesh : Capability
     {
-        public bool Flag
+        public byte[] Bytes
         {
             get;
             init;
         }
 
-        public Bool()
+        public Mesh()
         {
-            Flag = false;
+            Bytes = new byte[4];
         }
 
         public override void Update()

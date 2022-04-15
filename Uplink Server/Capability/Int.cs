@@ -1,6 +1,6 @@
-﻿namespace Uplink.Component
+﻿namespace Uplink.Capability
 {
-    public class Int : Component
+    public class Int : Capability
     {
         public int Number
         {

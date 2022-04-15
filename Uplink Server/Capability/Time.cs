@@ -1,6 +1,6 @@
-﻿namespace Uplink.Component
+﻿namespace Uplink.Capability
 {
-    public class Time : Component
+    public class Time : Capability
     {
         public DateTime Value
         {

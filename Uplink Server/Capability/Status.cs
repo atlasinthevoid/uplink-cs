@@ -1,8 +1,8 @@
 ﻿using System.Numerics;
 
-namespace Uplink.Component
+namespace Uplink.Capability
 {
-    public class Status : Component
+    public class Status : Capability
     {
         public Status()
         {
@@ -16,27 +16,8 @@ namespace Uplink.Component
 
         void CheckVars()
         {
-            Position position = new() { Name = "universe position", Number = new Vector3(0, 0, 0) };
-
-            Entity clientId = new();
-            AddEntity(this, clientId);
-            AddComponent(this, (clientId, new Guid() { Name = "local client id", Value = Parent.}));
-
-            Entity universe = new();
-            universe.Add(position);
-            universe.Add(new Int() { Name = "revision", Number = 0 });
-            universe.Add(new Text() { Name = "server", Text = "192.168.0.1:4545" });
-            universe.Add(new Bool() { Name = "started", Flag = false });
-            universe.Add(new Bool() { Name = "ready", Flag = true });
-            state.Add(universe);
-
-            Entity filesystem = new();
-            string appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            filesystem.Add(new Text() { Name = "uplink data", Text = appData + @"\Uplink\" });
-            filesystem.Add(new Text() { Name = "uplink ingest", Text = documents + @"\Uplink Ingest\" });
-            filesystem.Add(new Text() { Name = "uplink export", Text = documents + @"\Uplink Export\" });
-            state.Add(filesystem);
+            _ = new Entity.Universe();
+            _ = new Entity.FileSystem();
         }
 
 

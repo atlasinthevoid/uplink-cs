@@ -1,6 +1,6 @@
-﻿namespace Uplink.Component
+﻿namespace Uplink.Capability
 {
-    public class Text : Component
+    public class Text : Capability
     {
         public string Value
         {

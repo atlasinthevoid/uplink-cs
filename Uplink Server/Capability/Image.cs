@@ -1,8 +1,8 @@
 ﻿using System.Collections.Immutable;
 
-namespace Uplink.Component
+namespace Uplink.Capability
 {
-    public class Audio : Component
+    public class Image : Capability
     {
         public ImmutableArray<byte> Bytes
         {
@@ -10,14 +10,14 @@ namespace Uplink.Component
             init;
         }
 
-        public Audio()
+        public Image()
         {
             Bytes = new();
         }
 
         public override void Update()
         {
-
+            
         }
     }
 }

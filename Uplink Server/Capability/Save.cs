@@ -1,8 +1,8 @@
 ﻿using System.Xml.Serialization;
 
-namespace Uplink.Component
+namespace Uplink.Capability
 {
-    public class Save : Component
+    public class Save : Capability
     {
         public bool SaveToFile
         {
