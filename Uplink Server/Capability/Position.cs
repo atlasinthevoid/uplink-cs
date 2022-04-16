@@ -4,11 +4,7 @@ namespace Uplink.Capability
 {
     public class Position : Capability
     {
-        public Vector3 Number
-        {
-            get;
-            init;
-        }
+        public Vector3 Number;
 
         public Position()
         {

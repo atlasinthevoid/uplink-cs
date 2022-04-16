@@ -2,5 +2,9 @@
 {
     public class Author : Type
     {
+        public Author()
+        {
+            StringType = "Author";
+        }
     }
 }

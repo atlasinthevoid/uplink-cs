@@ -6,6 +6,7 @@
 
         public Name()
         {
+            StringType = "Name";
             Value = "";
         }
     }

@@ -5,8 +5,6 @@
         public Terminal()
         {
             Console.CancelKeyPress += new ConsoleCancelEventHandler(ExitHandler);
-
-            new Terminal() { Metadata = { new Type.Name() { Value = "terminal 0" } } };
         }
 
         public override void Update()
@@ -22,8 +20,9 @@
             {
                 return;
             }
+            /*
             Terminal terminal = Program.TerminalSystem.Capabilities.ByName(new Type.Name() { Value = "terminal 0" })[0];
-            Entity.Entity e = terminal.Metadata[typeof(Type.Parent)];
+            Entity.Entity e = terminal.Metadata.Get(Type.Parent.StringType)];
             e.Add(new Text() { 
                 Metadata = new() { new Type.Name() { Parent.Id.ToString() } },
                 Value = "cancelled"
@@ -32,7 +31,7 @@
             e.Add(new Save() {
                 Metadata = new() { new Type.Name() { Value = "save on close" } },
                 SaveToFile = true
-            });
+            });*/
         }
     }
 }

@@ -2,11 +2,7 @@
 {
     public class Int : Capability
     {
-        public int Number
-        {
-            get;
-            init;
-        }
+        public int Number;
 
         public Int()
         {

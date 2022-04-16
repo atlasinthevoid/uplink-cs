@@ -5,27 +5,28 @@ namespace Uplink.Type
     public class Metadata : Type
     {
         private readonly List<dynamic> list;
-        private readonly Dictionary<System.Type, dynamic> data;
+        private readonly Dictionary<string, dynamic> data;
 
         public Metadata()
         {
+            StringType = "Metadata";
             data = new();
             list = new();
         }
 
         public void Add(Type d)
         {
-            data.Add(data.GetType(), data);
+            data.Add(d.StringType, d);
         }
 
-        public bool ContainsKey(System.Type key)
+        public bool ContainsKey(string key)
         {
             return data.ContainsKey(key);
         }
 
-        public dynamic Get(System.Type type)
+        public dynamic Get(string type)
         {
-            return data[type.GetType()];
+            return data[type];
         }
     }
 }

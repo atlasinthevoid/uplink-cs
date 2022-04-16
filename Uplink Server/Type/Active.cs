@@ -2,5 +2,9 @@
 {
     public class Active : Type
     {
+        public Active()
+        {
+            StringType = "Active";
+        }
     }
 }

@@ -2,6 +2,11 @@
 {
     public abstract class Type
     {
-        public string StringType = "Type";
+        public string StringType;
+
+        public Type()
+        {
+            StringType = "Type";
+        }
     }
 }

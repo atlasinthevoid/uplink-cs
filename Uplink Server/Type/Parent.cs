@@ -6,6 +6,7 @@
 
         public Parent()
         {
+            StringType = "Parent";
             Value = new();
         }
     }

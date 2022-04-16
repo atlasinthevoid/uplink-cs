@@ -2,35 +2,15 @@
 {
     public class Time : Capability
     {
-        public DateTime Value
-        {
-            get;
-            init;
-        }
-        public bool Timer
-        {
-            get;
-            init;
-        }
-        public bool Clock
-        {
-            get;
-            init;
-        }
-        public int SecondsToUpdate
-        {
-            get;
-            init;
-        }
-        public bool TimeElapsed
-        {
-            get;
-            init;
-        }
+        public DateTime Value;
+        public bool Timer;
+        public bool Clock;
+        public int SecondsToUpdate;
+        public bool TimeElapsed;
 
         public Time()
         {
-            Time = DateTime.Now;
+            Value = DateTime.Now;
         }
 
         public override void Update()

@@ -6,9 +6,21 @@
         {
             string appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            _ = new Capability.Text() {Entity = Id, Name = "uplink data", Value = appData + @"\Uplink\" }.Id;
-            _ = new Capability.Text() {Entity = Id, Name = "uplink ingest", Value = documents + @"\Uplink Ingest\" }.Id;
-            _ = new Capability.Text() {Entity = Id, Name = "uplink export", Value = documents + @"\Uplink Export\" }.Id;
+
+            Capability.Text uData = new();
+            uData.Metadata.Add(new Type.Name() { Value = "uplink data" });
+            uData.Value = appData + @"\Uplink\";
+            Add(uData);
+
+            Capability.Text uIngest = new();
+            uIngest.Metadata.Add(new Type.Name { Value = "uplink ingest" });
+            uIngest.Value = documents + @"\Uplink Ingest\";
+            Add(uIngest);
+
+            Capability.Text uExport = new();
+            uExport.Metadata.Add(new Type.Name { Value = "uplink export" });
+            uExport.Value = documents + @"\Uplink Export\";
+            Add(uExport);
         }
     }
 }

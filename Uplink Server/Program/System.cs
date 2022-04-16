@@ -32,7 +32,7 @@
         }
     }
 
-    public class TerminalSystem : System<Terminal> { }
+    public class TerminalSystem : System<Capability.Terminal> { }
     //public class SpriteSystem : System<Sprite> { }
     //public class ColliderSystem : System<Collider> { }
 }

@@ -5,10 +5,10 @@
         // Saves global state
         public SaveUniverseToFile(string directory)
         {
-            Console.WriteLine("Saving universe to file... (" + Parent.ByName<State>()[0].Count().ToString() + " objects)");
+            //Console.WriteLine("Saving universe to file... (" + Parent.ByName<State>()[0].Count().ToString() + " objects)");
             System.IO.Directory.CreateDirectory(directory);
-
-            string serialisedState = Utility.SerializeObject<State>(Parent.ByName<State>()[0]);
+            /*
+            string serialisedState = Parent.ByName<State>()[0].SerializeObject<State>();
             System.IO.File.WriteAllText(directory + "State.xml", serialisedState);
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(State));
@@ -19,7 +19,7 @@
                 {
                     xmlSerializer.Serialize(fileStream, Parent.ByName<State>()[0]);
                 }
-            }
+            }*/
         }
     }
 }

@@ -2,11 +2,7 @@
 {
     public class Bool : Capability
     {
-        public bool Flag
-        {
-            get;
-            init;
-        }
+        public bool Flag;
 
         public Bool()
         {

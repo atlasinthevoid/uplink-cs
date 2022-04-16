@@ -21,7 +21,7 @@ namespace Uplink.Capability
             if (SaveToFile)
             {
                 //SaveToFile = false;
-                SaveUniverseToFile(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Uplink\");
+                //SaveUniverseToFile(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Uplink\");
                 Environment.Exit(0);
             }
         }

@@ -8,12 +8,10 @@ namespace Uplink.Program
         {
             Console.WriteLine("Atlas' Uplink universe server");
 
-            State state = new();
             Entity.Client client = new();
-
+            /*
             Time t = new()
             {
-                Entity = client.Id,
                 Name = "clock",
                 Timer = true,
                 Clock = true,
@@ -22,16 +20,12 @@ namespace Uplink.Program
 
             Time tt = new()
             {
-                Entity = client.Id,
                 Name = "status message",
                 Timer = true,
                 SecondsToUpdate = 10
             };
 
-            Status status = new()
-            {
-                Entity = client.Id
-            };
+            Status status = new();
 
             bool running = true;
             while (running)
@@ -41,7 +35,7 @@ namespace Uplink.Program
                     //Console.WriteLine(component.GetType().FullName);
                     component.Update();
                 }
-            }
+            }*/
         }
 
         public static string SerializeObject<T>(this T toSerialize)

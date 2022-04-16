@@ -2,11 +2,7 @@
 {
     public class Text : Capability
     {
-        public string Value
-        {
-            get;
-            init;
-        }
+        public string Value;
 
         public Text()
         {

@@ -32,9 +32,9 @@ namespace Uplink.Type
             }
             byType[capability.GetType()].Add(capability);
 
-            if (capability.Metadata.ContainsKey(typeof(Name)))
+            if (capability.Metadata.ContainsKey("Name"))
             {
-                Name n = capability.Metadata[typeof(Name)];
+                Name n = capability.Metadata.Get("Name");
                 if (!byName.ContainsKey(n))
                 {
                     byName[n] = new();

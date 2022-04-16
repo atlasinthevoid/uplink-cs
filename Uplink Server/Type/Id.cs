@@ -4,8 +4,15 @@
     {
         private System.Guid id;
 
+        public Id()
+        {
+            StringType = "Id";
+            id = System.Guid.NewGuid();
+        }
+
         public Id(bool empty = false)
         {
+            StringType = "Id";
             if (empty)
             {
                 this.id = Guid.Empty;

@@ -2,6 +2,9 @@
 {
     public class Result : Type
     {
-
+        public Result()
+        {
+            StringType = "Result";
+        }
     }
 }

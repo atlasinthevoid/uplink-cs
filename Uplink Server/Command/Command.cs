@@ -6,7 +6,7 @@
 
         public Command()
         {
-            Data = new Result();
+            Data = new Type.Result();
         }
     }
 }

@@ -21,7 +21,6 @@ namespace Uplink.Capability
     [XmlInclude(typeof(Terminal))]
     [XmlInclude(typeof(Text))]
     [XmlInclude(typeof(Time))]
-    [XmlInclude(typeof(State))]
 
     public class Capability
     {
