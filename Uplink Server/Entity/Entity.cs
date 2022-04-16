@@ -2,23 +2,19 @@
 {
     public class Entity
     {
-        public Type.Id Id
-        {
-            get;
-            init;
-        }
-        public Type.Capabilities Capabilities;
+        public Type.Metadata Metadata;
+        public Type.Capabilities<Capability.Capability> Capabilities;
 
-        public Entity()
+        public Entity() 
         {
-            Id = new();
             Capabilities = new();
+            Metadata = new();
         }
 
         public void Add(Capability.Capability capability)
         {
             Capabilities.Add(capability);
-            capability.Metadata.Add(new Type.Parent() { Value = this; })
+            capability.Metadata.Add(new Type.Parent() { Value = this });
         }
     }
 }

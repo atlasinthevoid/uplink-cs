@@ -2,13 +2,15 @@
 
 namespace Uplink.Type
 {
-    public class Metadata : Type, IEnumerable<System.Type>
+    public class Metadata : Type
     {
+        private readonly List<dynamic> list;
         private readonly Dictionary<System.Type, dynamic> data;
 
         public Metadata()
         {
             data = new();
+            list = new();
         }
 
         public void Add(Type d)
@@ -21,14 +23,9 @@ namespace Uplink.Type
             return data.ContainsKey(key);
         }
 
-        public IEnumerator<System.Type> GetEnumerator()
+        public dynamic Get(System.Type type)
         {
-            return GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return data.GetEnumerator();
+            return data[type.GetType()];
         }
     }
 }

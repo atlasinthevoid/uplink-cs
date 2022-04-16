@@ -29,15 +29,9 @@ namespace Uplink.Capability
 
         public Capability()
         {
-            Metadata = new()
-            {
-                new Type.Parent(),
-                new Type.Id(),
-                new Type.Name(),
-                new Type.CreationTime(),
-                new Type.Author(),
-                new Type.Active()
-            };
+            Metadata = new();
+            Metadata.Add(new Type.Id());
+            Metadata.Add(new Type.CreationTime());
         }
 
         public virtual void Update()

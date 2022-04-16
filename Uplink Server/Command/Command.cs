@@ -2,7 +2,7 @@
 {
     public abstract class Command
     {
-        public Result Data;
+        public Type.Result Data;
 
         public Command()
         {
