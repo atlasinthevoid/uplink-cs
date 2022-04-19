@@ -5,6 +5,7 @@
         public Terminal()
         {
             Console.CancelKeyPress += new ConsoleCancelEventHandler(ExitHandler);
+            Program.TerminalSystem.Register(this);
         }
 
         public override void Update()
@@ -14,24 +15,12 @@
 
         void ExitHandler(object? sender, ConsoleCancelEventArgs args)
         {
-            Console.WriteLine("CANCEL command received! Cleaning up. please wait...");
+            Command.Log l = new();
+            l.Message = "CANCEL command received! Cleaning up. please wait...";
+            l.Level = "Info";
+            l.Execute();
 
-            if (Program.TerminalSystem.Capabilities == null)
-            {
-                return;
-            }
-            /*
-            Terminal terminal = Program.TerminalSystem.Capabilities.ByName(new Type.Name() { Value = "terminal 0" })[0];
-            Entity.Entity e = terminal.Metadata.Get(Type.Parent.StringType)];
-            e.Add(new Text() { 
-                Metadata = new() { new Type.Name() { Parent.Id.ToString() } },
-                Value = "cancelled"
-            });
-
-            e.Add(new Save() {
-                Metadata = new() { new Type.Name() { Value = "save on close" } },
-                SaveToFile = true
-            });*/
+            Environment.Exit(0);
         }
     }
 }

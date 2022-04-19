@@ -11,6 +11,7 @@
         public Mesh()
         {
             Bytes = new byte[4];
+            Program.MeshSystem.Register(this);
         }
 
         public override void Update()

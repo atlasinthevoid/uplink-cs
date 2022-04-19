@@ -9,6 +9,7 @@ namespace Uplink.Capability
         public Position()
         {
             Number = Vector3.Zero;
+            Program.PositionSystem.Register(this);
         }
 
         public override void Update()

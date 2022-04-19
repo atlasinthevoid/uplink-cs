@@ -6,36 +6,11 @@ namespace Uplink.Program
     {
         static void Main()
         {
-            Console.WriteLine("Atlas' Uplink universe server");
+            Command.Init i = new();
+            i.Execute();
 
-            Entity.Client client = new();
-            /*
-            Time t = new()
-            {
-                Name = "clock",
-                Timer = true,
-                Clock = true,
-                SecondsToUpdate = 10
-            };
-
-            Time tt = new()
-            {
-                Name = "status message",
-                Timer = true,
-                SecondsToUpdate = 10
-            };
-
-            Status status = new();
-
-            bool running = true;
-            while (running)
-            {
-                foreach (Capability.Capability component in state.GetComponents())
-                {
-                    //Console.WriteLine(component.GetType().FullName);
-                    component.Update();
-                }
-            }*/
+            Command.StartGameLoop s = new();
+            s.Execute();
         }
 
         public static string SerializeObject<T>(this T toSerialize)

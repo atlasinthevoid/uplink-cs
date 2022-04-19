@@ -2,7 +2,7 @@
 
 namespace Uplink.Type
 {
-    public class Capabilities<T> : IEnumerable<T> where T : Capability.Capability
+    public class Capabilities<T> where T : Capability.Capability
     {
         private readonly List<T> data;
         private readonly Dictionary<Id, T> byId;
@@ -58,15 +58,9 @@ namespace Uplink.Type
             return byName[n];
         }
 
-
-        public IEnumerator<T> GetEnumerator()
+        public List<T> Get()
         {
-            return GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return data.GetEnumerator();
+            return data.ToList();
         }
     }
 }

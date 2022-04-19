@@ -7,6 +7,7 @@
         public Int()
         {
             Number = 0;
+            Program.IntSystem.Register(this);
         }
 
         public override void Update()

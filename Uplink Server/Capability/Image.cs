@@ -13,6 +13,7 @@ namespace Uplink.Capability
         public Image()
         {
             Bytes = new();
+            Program.ImageSystem.Register(this);
         }
 
         public override void Update()

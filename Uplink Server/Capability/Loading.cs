@@ -6,7 +6,7 @@ namespace Uplink.Capability
     {
         public Loading()
         {
-
+            Program.LoadingSystem.Register(this);
         }
 
         public override void Update()

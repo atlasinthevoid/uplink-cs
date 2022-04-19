@@ -17,6 +17,7 @@
         public Broadcast()
         {
             EventId = new(true);
+            Program.BroadcastSystem.Register(this);
         }
 
         public override void Update()

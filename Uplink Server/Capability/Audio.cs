@@ -7,6 +7,7 @@
         public Audio()
         {
             Bytes = new();
+            Program.AudioSystem.Register(this);
         }
 
         public override void Update()

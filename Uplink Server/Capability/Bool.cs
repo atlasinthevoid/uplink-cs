@@ -7,6 +7,7 @@
         public Bool()
         {
             Flag = false;
+            Program.BoolSystem.Register(this);
         }
 
         public override void Update()

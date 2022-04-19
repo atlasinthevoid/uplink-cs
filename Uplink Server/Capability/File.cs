@@ -20,6 +20,7 @@ namespace Uplink.Capability
         {
             Bytes = new();
             FilePath = "";
+            Program.FileSystem.Register(this);
         }
 
         public override void Update()

@@ -11,6 +11,7 @@
         public Time()
         {
             Value = DateTime.Now;
+            Program.TimeSystem.Register(this);
         }
 
         public override void Update()
@@ -24,7 +25,10 @@
                     if (Clock)
                     {
                         string s = "System time is ";
-                        Console.WriteLine(s + DateTime.Now);
+                        Command.Log l = new();
+                        l.Message = s + DateTime.Now;
+                        l.Execute();
+
                         TimeElapsed = false;
                     }
                     Value = DateTime.Now;

@@ -11,6 +11,7 @@
         public Id()
         {
             Value = Guid.Empty;
+            Program.IdSystem.Register(this);
         }
 
         public override void Update()

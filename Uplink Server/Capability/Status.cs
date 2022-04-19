@@ -6,7 +6,7 @@ namespace Uplink.Capability
     {
         public Status()
         {
-
+            Program.StatusSystem.Register(this);
         }
 
         public override void Update()

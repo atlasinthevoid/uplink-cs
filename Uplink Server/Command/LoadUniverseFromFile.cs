@@ -2,10 +2,20 @@
 {
     public class LoadUniverseFromFile : Command
     {
-        public LoadUniverseFromFile(string directory)
+        public string Directory;
+        public LoadUniverseFromFile()
         {
-            Console.WriteLine("Loading universe from file...");
-            if (!System.IO.File.Exists(directory + "State.xml"))
+            Directory = "";
+            StringType = "LoadUniverseFromFile";
+        }
+
+        internal override void Exec()
+        {
+            Log l = new();
+            l.Message = "Loading universe from file...";
+            l.Execute();
+
+            if (!System.IO.File.Exists(Directory + "State.xml"))
             {
                 //new Text() { Name = "error", Value = "universe save file not found" };
                 return;
@@ -24,6 +34,11 @@
                     sOld = s;
                 }
             }*/
+        }
+
+        public override void Undo()
+        {
+
         }
     }
 }

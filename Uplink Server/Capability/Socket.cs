@@ -10,6 +10,7 @@ namespace Uplink.Capability
         {
             CreateServer();
             CreateClient();
+            Program.SocketSystem.Register(this);
         }
 
         public override void Update()
@@ -19,7 +20,10 @@ namespace Uplink.Capability
 
         public void CreateServer()
         {
-            Console.WriteLine("Created Server");
+            Command.Log l = new();
+            l.Message = "Created Server";
+            l.Execute();
+
             var wssv = new WebSocketServer(System.Net.IPAddress.Any, 8080);
 
             wssv.AddWebSocketService<UplinkService>("/Uplink");
@@ -33,7 +37,10 @@ namespace Uplink.Capability
 
         public void CreateClient()
         {
-            Console.WriteLine("Created Client");
+            Command.Log l = new();
+            l.Message = "Created Client";
+            l.Execute();
+
             var ws = new WebSocket("ws://localhost:8080/Uplink");
             ws.OnMessage += new EventHandler<MessageEventArgs>(ClientOnMessage);
 
@@ -50,7 +57,9 @@ namespace Uplink.Capability
 
         void ClientOnMessage(object? sender, MessageEventArgs e)
         {
-            Console.WriteLine("Laputa says: " + e.Data);
+            Command.Log l = new();
+            l.Message = "Laputa says: " + e.Data;
+            l.Execute();
         }
     }
 

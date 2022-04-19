@@ -11,6 +11,7 @@
         public Float()
         {
             Number = 0.0f;
+            Program.FloatSystem.Register(this);
         }
 
         public override void Update()

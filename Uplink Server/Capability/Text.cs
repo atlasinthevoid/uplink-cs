@@ -7,6 +7,7 @@
         public Text()
         {
             Value = "";
+            Program.TextSystem.Register(this);
         }
 
         public override void Update()

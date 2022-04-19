@@ -13,6 +13,7 @@ namespace Uplink.Capability
         public Rotation()
         {
             Number = Vector3.Zero;
+            Program.RotationSystem.Register(this);
         }
 
         public override void Update()

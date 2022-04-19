@@ -2,11 +2,18 @@
 {
     public class SaveUniverseToFile : Command
     {
+        public string Directory;
         // Saves global state
-        public SaveUniverseToFile(string directory)
+        public SaveUniverseToFile()
         {
-            //Console.WriteLine("Saving universe to file... (" + Parent.ByName<State>()[0].Count().ToString() + " objects)");
-            System.IO.Directory.CreateDirectory(directory);
+            Directory = "";
+            StringType = "SaveUniverseToFile";
+        }
+
+        internal override void Exec()
+        {
+            //("Saving universe to file... (" + Parent.ByName<State>()[0].Count().ToString() + " objects)");
+            System.IO.Directory.CreateDirectory(Directory);
             /*
             string serialisedState = Parent.ByName<State>()[0].SerializeObject<State>();
             System.IO.File.WriteAllText(directory + "State.xml", serialisedState);
@@ -20,6 +27,11 @@
                     xmlSerializer.Serialize(fileStream, Parent.ByName<State>()[0]);
                 }
             }*/
+        }
+
+        public override void Undo()
+        {
+
         }
     }
 }
