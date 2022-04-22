@@ -398,4 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Engine Assets folder
-Uplink/Assets/
+Assets/
