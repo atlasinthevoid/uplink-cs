@@ -47,7 +47,7 @@ namespace Uplink.Capability
             // Sync
 
             ws.Connect();
-            ws.Send(AudioSystem.Capabilities.Get()[0].SerializeObject());
+            //ws.Send(AudioSystem.Capabilities.Get()[0].SerializeObject());
         }
 
         public void StopClient()
@@ -67,7 +67,7 @@ namespace Uplink.Capability
     {
         protected override void OnMessage(MessageEventArgs e)
         {
-            string msg = "";
+            //string msg = "";
             //Component es = e.Data as Component;
 
             Send(e.Data);
