@@ -1,11 +1,10 @@
-﻿using System.Xml.Serialization;
-
-namespace Uplink.Capability
+﻿namespace Uplink.Capability
 {
     public class Loading : Capability
     {
         public Loading()
         {
+            StringType = "Loading";
             Program.LoadingSystem.Register(this);
         }
 

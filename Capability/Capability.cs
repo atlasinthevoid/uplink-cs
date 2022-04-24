@@ -14,20 +14,24 @@ namespace Uplink.Capability
     [XmlInclude(typeof(Loading))]
     [XmlInclude(typeof(Mesh))]
     [XmlInclude(typeof(Position))]
-    [XmlInclude(typeof(Rotation))]
     [XmlInclude(typeof(Save))]
     [XmlInclude(typeof(Socket))]
     [XmlInclude(typeof(Status))]
     [XmlInclude(typeof(Terminal))]
     [XmlInclude(typeof(Text))]
     [XmlInclude(typeof(Time))]
+    [XmlInclude(typeof(Pose))]
+    [XmlInclude(typeof(Matrix))]
+    [XmlInclude(typeof(Task))]
+    [XmlInclude(typeof(Inventory))]
 
-    public class Capability
+    public class Capability : Type.Type
     {
         public Type.Metadata Metadata;
 
         public Capability()
         {
+            StringType = "Capability";
             Metadata = new();
             Metadata.Add(new Type.Id());
             Metadata.Add(new Type.CreationTime());

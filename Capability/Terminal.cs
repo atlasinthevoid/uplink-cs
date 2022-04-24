@@ -4,6 +4,7 @@
     {
         public Terminal()
         {
+            StringType = "Tereminal";
             Console.CancelKeyPress += new ConsoleCancelEventHandler(ExitHandler);
             Program.TerminalSystem.Register(this);
         }

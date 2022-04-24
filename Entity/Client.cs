@@ -15,7 +15,6 @@
             Add(new Capability.Loading());
             Add(new Capability.Mesh());
             Add(new Capability.Position());
-            Add(new Capability.Rotation());
             Add(new Capability.Save());
             Add(new Capability.Socket());
             Add(new Capability.Status());

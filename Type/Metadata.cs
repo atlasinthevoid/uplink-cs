@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace Uplink.Type
+﻿namespace Uplink.Type
 {
     public class Metadata : Type
     {

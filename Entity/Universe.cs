@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace Uplink.Entity
+﻿namespace Uplink.Entity
 {
     public class Universe : Entity
     {
@@ -8,7 +6,7 @@ namespace Uplink.Entity
         {
             Capability.Position pos = new();
             pos.Metadata.Add(new Type.Name() { Value = "universe position" });
-            pos.Number = new Vector3(0, 0, 0);
+            pos.Number = new System.Numerics.Vector3(0, 0, 0);
             Add(pos);
 
             Capability.Int rev = new();

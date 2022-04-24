@@ -1,17 +1,12 @@
-﻿using System.Xml.Serialization;
-
-namespace Uplink.Capability
+﻿namespace Uplink.Capability
 {
     public class Save : Capability
     {
-        public bool SaveToFile
-        {
-            get;
-            init;
-        }
+        public bool SaveToFile;
 
         public Save()
         {
+            StringType = "Save";
             Program.SaveSystem.Register(this);
         }
 

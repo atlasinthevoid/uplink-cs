@@ -8,6 +8,7 @@ namespace Uplink.Capability
     {
         public Socket()
         {
+            StringType = "Socket";
             CreateServer();
             CreateClient();
             Program.SocketSystem.Register(this);

@@ -1,14 +1,13 @@
-﻿using System.Numerics;
-
-namespace Uplink.Capability
+﻿namespace Uplink.Capability
 {
     public class Position : Capability
     {
-        public Vector3 Number;
+        public System.Numerics.Vector3 Number;
 
         public Position()
         {
-            Number = Vector3.Zero;
+            StringType = "Position";
+            Number = System.Numerics.Vector3.Zero;
             Program.PositionSystem.Register(this);
         }
 

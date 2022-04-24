@@ -6,6 +6,7 @@
 
         public Bool()
         {
+            StringType = "Bool";
             Flag = false;
             Program.BoolSystem.Register(this);
         }

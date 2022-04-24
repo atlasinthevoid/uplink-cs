@@ -9,12 +9,12 @@
 
         internal override void Exec()
         {
-            bool running = true;
-            while (running)
+            while (StereoKit.SK.Step(() =>
             {
                 GameLoop g = new();
                 g.Execute();
-            }
+            })) ;
+            StereoKit.SK.Shutdown();
         }
 
         public override void Undo()

@@ -21,13 +21,14 @@
             Program.LoadingSystem.Update();
             Program.MeshSystem.Update();
             Program.PositionSystem.Update();
-            Program.RotationSystem.Update();
             Program.SaveSystem.Update();
             Program.SocketSystem.Update();
             Program.StatusSystem.Update();
             Program.TerminalSystem.Update();
             Program.TextSystem.Update();
             Program.TimeSystem.Update();
+            Program.PoseSystem.Update();
+            Program.MatrixSystem.Update();
         }
 
         public override void Undo()

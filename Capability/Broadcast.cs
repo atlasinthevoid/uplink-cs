@@ -16,6 +16,7 @@
 
         public Broadcast()
         {
+            StringType = "Broadcast";
             EventId = new(true);
             Program.BroadcastSystem.Register(this);
         }

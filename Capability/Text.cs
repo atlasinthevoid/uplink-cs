@@ -6,6 +6,7 @@
 
         public Text()
         {
+            StringType = "Text";
             Value = "";
             Program.TextSystem.Register(this);
         }

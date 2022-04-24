@@ -49,11 +49,14 @@
     public class LoadingSystem : System<Capability.Loading> { }
     public class MeshSystem : System<Capability.Mesh> { }
     public class PositionSystem : System<Capability.Position> { }
-    public class RotationSystem : System<Capability.Rotation> { }
     public class SaveSystem : System<Capability.Save> { }
     public class SocketSystem : System<Capability.Socket> { }
     public class StatusSystem : System<Capability.Status> { }
     public class TerminalSystem : System<Capability.Terminal> { }
     public class TextSystem : System<Capability.Text> { }
     public class TimeSystem : System<Capability.Time> { }
+    public class PoseSystem : System<Capability.Pose> { }
+    public class MatrixSystem : System<Capability.Matrix> { }
+    public class TaskSystem : System<Capability.Task> { }
+    public class InventorySystem : System<Capability.Inventory> { }
 }

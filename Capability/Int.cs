@@ -6,6 +6,7 @@
 
         public Int()
         {
+            StringType = "Int";
             Number = 0;
             Program.IntSystem.Register(this);
         }

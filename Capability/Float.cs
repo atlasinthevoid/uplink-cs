@@ -10,6 +10,7 @@
 
         public Float()
         {
+            StringType = "Float";
             Number = 0.0f;
             Program.FloatSystem.Register(this);
         }

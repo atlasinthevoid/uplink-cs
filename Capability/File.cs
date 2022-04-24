@@ -1,23 +1,14 @@
-﻿using System.Collections.Immutable;
-
-namespace Uplink.Capability
+﻿namespace Uplink.Capability
 {
     public class File : Capability
     {
-        public ImmutableArray<byte> Bytes
-        {
-            get;
-            init;
-        }
+        public List<byte> Bytes;
 
-        public string FilePath
-        {
-            get;
-            init;
-        }
+        public string FilePath;
 
         public File()
         {
+            StringType = "File";
             Bytes = new();
             FilePath = "";
             Program.FileSystem.Register(this);

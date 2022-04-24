@@ -10,6 +10,7 @@
 
         public Time()
         {
+            StringType = "Time";
             Value = DateTime.Now;
             Program.TimeSystem.Register(this);
         }

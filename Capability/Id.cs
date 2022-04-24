@@ -2,14 +2,11 @@
 {
     public class Id : Capability
     {
-        public Guid Value
-        {
-            get;
-            init;
-        }
+        public Guid Value;
 
         public Id()
         {
+            StringType = "Id";
             Value = Guid.Empty;
             Program.IdSystem.Register(this);
         }

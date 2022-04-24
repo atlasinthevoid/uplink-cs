@@ -1,11 +1,10 @@
-﻿using System.Numerics;
-
-namespace Uplink.Capability
+﻿namespace Uplink.Capability
 {
     public class Status : Capability
     {
         public Status()
         {
+            StringType = "Status";
             Program.StatusSystem.Register(this);
         }
 

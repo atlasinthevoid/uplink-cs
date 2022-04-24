@@ -6,6 +6,7 @@
 
         public Audio()
         {
+            StringType = "Audio";
             Bytes = new();
             Program.AudioSystem.Register(this);
         }
