@@ -4,23 +4,27 @@
     {
         public Client()
         {
-            Add(new Capability.Audio());
-            Add(new Capability.Bool());
-            Add(new Capability.Broadcast());
-            Add(new Capability.File());
-            Add(new Capability.Float());
-            Add(new Capability.Id());
-            Add(new Capability.Image());
-            Add(new Capability.Int());
             Add(new Capability.Loading());
-            Add(new Capability.Mesh());
-            Add(new Capability.Position());
-            Add(new Capability.Save());
             Add(new Capability.Socket());
             Add(new Capability.Status());
             Add(new Capability.Terminal());
-            Add(new Capability.Text());
-            Add(new Capability.Time());
+
+            Capability.Time t = new()
+            {
+                Timer = true,
+                Clock = true,
+                SecondsToUpdate = 10
+            };
+            t.Metadata.Add(new Type.Name() { Value = "Clock" });
+            Add(t);
+
+            Capability.Time tt = new()
+            {
+                Timer = true,
+                SecondsToUpdate = 10
+            };
+            tt.Metadata.Add(new Type.Name() { Value = "Status message" });
+            Add(tt);
         }
     }
 }

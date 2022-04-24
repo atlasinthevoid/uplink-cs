@@ -15,27 +15,10 @@
 
             Entity.Client client = new();
 
-            Capability.Time t = new()
-            {
-                Timer = true,
-                Clock = true,
-                SecondsToUpdate = 10
-            };
-            t.Metadata.Add(new Type.Name() { Value = "Clock" });
-            client.Add(t);
-
-            Capability.Time tt = new()
-            {
-                Timer = true,
-                SecondsToUpdate = 10
-            };
-            tt.Metadata.Add(new Type.Name() { Value = "Status message" });
-            client.Add(tt);
-
             InitEnvironment();
         }
 
-        static void InitEnvironment()
+        private void InitEnvironment()
         {
             // Initialize StereoKit
             StereoKit.SKSettings settings = new()
@@ -44,22 +27,11 @@
                 assetsFolder = "Assets",
             };
             if (!StereoKit.SK.Initialize(settings))
+            {
                 Environment.Exit(1);
-
-
-            Entity.Entity cube = new();
-
-            Capability.Pose cubePose = new();
-            cubePose.Value = new(0, 0, -0.5f, StereoKit.Quat.Identity);
-
-            Capability.Mesh cubeMesh = new();
-            cubeMesh.Model = StereoKit.Model.FromMesh(
-                StereoKit.Mesh.GenerateRoundedCube(StereoKit.Vec3.One * 0.1f, 0.02f),
-                StereoKit.Default.MaterialUI
-            );
+            }
             
-            cube.Add(cubePose);
-            cube.Add(cubeMesh);
+            Entity.Cube cube = new();
 
             if (StereoKit.SK.System.displayType == StereoKit.Display.Opaque)
             {
