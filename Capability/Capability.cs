@@ -24,6 +24,13 @@ namespace Uplink.Capability
     [XmlInclude(typeof(Matrix))]
     [XmlInclude(typeof(Task))]
     [XmlInclude(typeof(Inventory))]
+    [XmlInclude(typeof(Avatar))]
+    [XmlInclude(typeof(Button))]
+    [XmlInclude(typeof(Controller))]
+    [XmlInclude(typeof(Hand))]
+    [XmlInclude(typeof(Handle))]
+    [XmlInclude(typeof(Profile))]
+    [XmlInclude(typeof(Window))]
 
     public class Capability : Type.Type
     {

@@ -59,4 +59,11 @@
     public class MatrixSystem : System<Capability.Matrix> { }
     public class TaskSystem : System<Capability.Task> { }
     public class InventorySystem : System<Capability.Inventory> { }
+    public class AvatarSystem : System<Capability.Avatar> { }
+    public class ButtonSystem : System<Capability.Button> { }
+    public class ControllerSystem : System<Capability.Controller> { }
+    public class HandSystem : System<Capability.Hand> { }
+    public class HandleSystem : System<Capability.Handle> { }
+    public class ProfileSystem : System<Capability.Profile> { }
+    public class WindowSystem : System<Capability.Window> { }
 }

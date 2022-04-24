@@ -29,6 +29,15 @@
             Program.TimeSystem.Update();
             Program.PoseSystem.Update();
             Program.MatrixSystem.Update();
+            Program.TaskSystem.Update();
+            Program.InventorySystem.Update();
+            Program.AvatarSystem.Update();
+            Program.ButtonSystem.Update();
+            Program.ControllerSystem.Update();
+            Program.HandSystem.Update();
+            Program.HandleSystem.Update();
+            Program.ProfileSystem.Update();
+            Program.WindowSystem.Update();
         }
 
         public override void Undo()
