@@ -14,7 +14,7 @@
             l.Execute();
 
             Type.Entity client = new();
-            client.Add(new Capability.Client());
+            client.Add(new Capability.Core.Client());
 
             InitEnvironment();
         }
@@ -33,19 +33,19 @@
             }
             
             Type.Entity cube = new();
-            cube.Add(new Capability.Cube());
+            cube.Add(new Capability.World.Cube());
 
             if (StereoKit.SK.System.displayType == StereoKit.Display.Opaque)
             {
                 Type.Entity floor = new();
                 
-                Capability.Matrix floorTransform = new();
+                Capability.Core.Matrix floorTransform = new();
                 floorTransform.Value = StereoKit.Matrix.TS(0, -1.5f, 0, new StereoKit.Vec3(30, 0.1f, 30));
 
                 StereoKit.Material floorMaterial = new(StereoKit.Shader.FromFile(@"C:\Users\atlas\Documents\Uplink\bin\Debug\net6.0\Assets\floor.hlsl"));
                 floorMaterial.Transparency = StereoKit.Transparency.Blend;
 
-                Capability.Mesh floorMesh = new();
+                Capability.World.Mesh floorMesh = new();
                 floorMesh.Model = StereoKit.Model.FromMesh(
                     StereoKit.Mesh.GenerateCube(StereoKit.Vec3.One),
                     floorMaterial

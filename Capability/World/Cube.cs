@@ -14,7 +14,7 @@ namespace Uplink.Capability.World
                 Type.Entity p = Metadata.Get("Parent").Value;
                 if (p.Capabilities.ContainsType("Pose"))
                 {
-                    Pose cubePose = new();
+                    Core.Pose cubePose = new();
                     cubePose.Value = new(0, 0, -0.5f, StereoKit.Quat.Identity);
                     p.Add(cubePose);
                 }

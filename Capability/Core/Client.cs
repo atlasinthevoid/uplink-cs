@@ -15,7 +15,7 @@
                 Type.Entity p = Metadata.Get("Parent").Value;
                 if (!p.Capabilities.ContainsType("Loading"))
                 {
-                    p.Add(new Loading());
+                    p.Add(new Menu.Loading());
                 }
 
                 if (!p.Capabilities.ContainsType("Socket"))
@@ -25,12 +25,12 @@
 
                 if (!p.Capabilities.ContainsType("Status"))
                 {
-                    p.Add(new Status());
+                    p.Add(new Menu.Status());
                 }
 
                 if (!p.Capabilities.ContainsType("Terminal"))
                 {
-                    p.Add(new Terminal());
+                    p.Add(new Menu.Terminal());
                 }
             
                 if (!p.Capabilities.ContainsType("Time"))

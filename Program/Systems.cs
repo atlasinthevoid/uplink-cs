@@ -25,9 +25,9 @@
 
         public static void Update()
         {
-            foreach (Type.Capabilities<Capability.Capability> system in List.Values)
+            foreach (Type.Capabilities<Capability.Capability> system in List.Values.ToList())
             {
-                foreach (Capability.Capability capability in system.Get())
+                foreach (Capability.Capability capability in system.Get().ToList())
                 {
                     capability.Update();
                 }

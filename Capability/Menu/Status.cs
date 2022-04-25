@@ -16,10 +16,10 @@
         void CheckVars()
         {
             Type.Entity u = new();
-            u.Add(new Universe());
+            u.Add(new World.Universe());
 
             Type.Entity fs = new();
-            fs.Add(new FileSystem());
+            fs.Add(new Core.FileSystem());
         }
 
 
