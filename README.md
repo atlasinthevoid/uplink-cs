@@ -1,2 +1,2 @@
-# uplink-server
+# uplink
  
