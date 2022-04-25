@@ -2,7 +2,7 @@
 
 namespace Uplink.Type
 {
-    public class Entities<T> : IEnumerable<T> where T : Entity.Entity
+    public class Entities<T> : IEnumerable<T> where T : Entity
     {
         private readonly List<T> data;
         private readonly Dictionary<Id, T> byId;

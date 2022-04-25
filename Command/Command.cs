@@ -1,9 +1,8 @@
 ﻿namespace Uplink.Command
 {
-    public abstract class Command
+    public abstract class Command : Type.Type
     {
         public Type.Result Data;
-        public string StringType;
 
         public Command()
         {

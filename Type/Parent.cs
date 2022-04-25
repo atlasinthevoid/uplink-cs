@@ -2,7 +2,7 @@
 {
     public class Parent : Type
     {
-        public Entity.Entity Value;
+        public Entity Value;
 
         public Parent()
         {

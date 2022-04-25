@@ -13,7 +13,8 @@
             l.Message = "Atlas' Uplink server";
             l.Execute();
 
-            Entity.Client client = new();
+            Type.Entity client = new();
+            client.Add(new Capability.Client());
 
             InitEnvironment();
         }
@@ -31,11 +32,12 @@
                 Environment.Exit(1);
             }
             
-            Entity.Cube cube = new();
+            Type.Entity cube = new();
+            cube.Add(new Capability.Cube());
 
             if (StereoKit.SK.System.displayType == StereoKit.Display.Opaque)
             {
-                Entity.Entity floor = new();
+                Type.Entity floor = new();
                 
                 Capability.Matrix floorTransform = new();
                 floorTransform.Value = StereoKit.Matrix.TS(0, -1.5f, 0, new StereoKit.Vec3(30, 0.1f, 30));
