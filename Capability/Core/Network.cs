@@ -2,10 +2,13 @@ namespace Uplink.Capability.Core
 {
     public class Network : Capability
     {
+        public Dictionary<StereoKit.Vec3, Type.Entities<Type.Entity>> Chunks;
+        public string BootstrapServer = "universe.void.contact";
 
         public Network()
         {
             StringType = "Network";
+            Chunks = new();
             Program.Systems.Register(this);
         }
 
