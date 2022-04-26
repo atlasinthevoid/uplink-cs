@@ -20,5 +20,10 @@ namespace Uplink.Capability
         {
 
         }
+
+        public virtual void EndUpdate()
+        {
+
+        }
     }
 }

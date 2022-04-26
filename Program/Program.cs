@@ -6,14 +6,6 @@
         {
             Command.Init i = new();
             i.Execute();
-            // Display info to user
-            // Load universe from file
-            // Hash entities to position chunk table
-            // Host Network Node for position chunks
-            // Fetch chunks from uplink.void.contact
-            // Display UI Toolkit
-            // Load skybox
-
 
             Command.StartGameLoop s = new();
             s.Execute();

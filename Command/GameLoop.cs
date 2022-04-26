@@ -10,6 +10,7 @@
         internal override void Exec()
         {
             Program.Systems.Update();
+            Program.Systems.EndUpdate();
         }
 
         public override void Undo()

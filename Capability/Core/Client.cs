@@ -2,56 +2,66 @@
 {
     public class Client : Capability
     {
+        bool Setup;
+
         public Client()
         {
             StringType = "Client";
+            Setup = false;
             Program.Systems.Register(this);
         }
 
         public override void Update()
         {
-            if(Metadata.ContainsKey("Parent"))
+            if(Metadata.ContainsKey("Parent") && !Setup)
             {
                 Type.Entity p = Metadata.Get("Parent").Value;
-                if (!p.Capabilities.ContainsType("Loading"))
-                {
-                    p.Add(new Menu.Loading());
-                }
-
-                if (!p.Capabilities.ContainsType("Socket"))
-                {
-                    p.Add(new Socket());
-                }
-
-                if (!p.Capabilities.ContainsType("Status"))
-                {
-                    p.Add(new Menu.Status());
-                }
-
-                if (!p.Capabilities.ContainsType("Terminal"))
-                {
-                    p.Add(new Menu.Terminal());
-                }
+                p.Add(new Menu.Loading());
+                p.Add(new Socket());
+                p.Add(new Menu.Status());
+                p.Add(new Menu.Terminal());
             
-                if (!p.Capabilities.ContainsType("Time"))
+                Time t = new()
                 {
-                    Time t = new()
-                    {
-                        Timer = true,
-                        Clock = true,
-                        SecondsToUpdate = 10
-                    };
-                    t.Metadata.Add(new Type.Name() { Value = "Clock" });
-                    p.Add(t);
+                    Timer = true,
+                    Clock = true,
+                    SecondsToUpdate = 10
+                };
+                t.Metadata.Add(new Type.Name() { Value = "Clock" });
+                p.Add(t);
 
-                    Time tt = new()
-                    {
-                        Timer = true,
-                        SecondsToUpdate = 10
-                    };
-                    tt.Metadata.Add(new Type.Name() { Value = "Status message" });
-                    p.Add(tt);
-                }
+                Time tt = new()
+                {
+                    Timer = true,
+                    SecondsToUpdate = 10
+                };
+                tt.Metadata.Add(new Type.Name() { Value = "Status message" });
+                p.Add(tt);
+
+                // Display info to user
+                Command.Log l = new();
+                l.Level = "Info";
+                l.Message = "Initialization complete.";
+                l.Execute();
+
+                Command.Log ll = new();
+                ll.Level = "Info";
+                string num = Program.Systems.GetNumberOfCapabilities().ToString();
+                ll.Message = "Universe contains " + num + " capabilities.";
+                ll.Execute();
+
+                // Load universe from file
+                Command.LoadUniverseFromFile load = new();
+                load.Execute();
+
+                // Hash entities to position chunk table
+                // Host Network Node for position chunks
+                p.Add(new Network());
+
+                // Display UI Toolkit
+                
+
+                Setup = true;
             }
         }
     }

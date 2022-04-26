@@ -3,6 +3,7 @@
     public class Systems
     {
         public static Dictionary<string, Type.Capabilities<Capability.Capability>> List = new();
+        private static int count;
 
         public Systems()
         {
@@ -21,6 +22,12 @@
             l.Message = capability.StringType + " " + capability.Metadata.Get("Id").ShortGuid() + " registered";
             l.Level = "Trace";
             l.Execute();
+            count++;
+        }
+
+        public static int GetNumberOfCapabilities()
+        {
+            return count;
         }
 
         public static void Update()
@@ -30,6 +37,17 @@
                 foreach (Capability.Capability capability in system.Get().ToList())
                 {
                     capability.Update();
+                }
+            }
+        }
+        
+        public static void EndUpdate()
+        {
+            foreach (Type.Capabilities<Capability.Capability> system in List.Values.ToList())
+            {
+                foreach (Capability.Capability capability in system.Get().ToList())
+                {
+                    capability.EndUpdate();
                 }
             }
         }

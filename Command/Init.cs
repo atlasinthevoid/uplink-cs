@@ -37,9 +37,15 @@
 
             if (StereoKit.SK.System.displayType == StereoKit.Display.Opaque)
             {
-                //Type.Entity floor = new();
-                //floor.Add(new Capability.World.Floor());
+                Type.Entity floor = new();
+                floor.Add(new Capability.World.Floor());
             }
+
+            Type.Entity w = new();
+            Capability.Menu.WindowButton button = new();
+            button.WindowTitle = "Test Button";
+            button.ButtonTitle = "Press me! :)";
+            w.Add(button);
         }
 
         public override void Undo()
