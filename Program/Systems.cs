@@ -18,7 +18,7 @@
             List[capability.StringType].Add(capability);
 
             Command.Log l = new();
-            l.Message = capability.StringType + " " + capability.Metadata.Get("Id").ShortGuid() + " capability registered";
+            l.Message = capability.StringType + " " + capability.Metadata.Get("Id").ShortGuid() + " registered";
             l.Level = "Trace";
             l.Execute();
         }
