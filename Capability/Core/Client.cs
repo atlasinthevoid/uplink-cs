@@ -20,6 +20,7 @@
                 p.Add(new Socket());
                 p.Add(new Menu.Status());
                 p.Add(new Menu.Terminal());
+                p.Add(new Core.FileSystem());
             
                 Time t = new()
                 {
