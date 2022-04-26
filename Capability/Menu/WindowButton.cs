@@ -20,10 +20,6 @@ namespace Uplink.Capability.Menu
             if (Metadata.ContainsKey("Parent") && !Setup)
             {
                 Type.Entity window = Metadata.Get("Parent").Value;
-                Core.Pose windowPose = new();
-                windowPose.Value = new(0, 1, -0.5f, StereoKit.Quat.FromAngles(0, 180, 0));
-                window.Add(windowPose);
-
                 Menu.Window w = new();
                 w.Title = WindowTitle;
                 window.Add(w);

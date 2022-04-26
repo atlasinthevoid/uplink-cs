@@ -23,6 +23,7 @@
             }
 
             data.Add(capability);
+            byId[capability.Metadata.Get("Id")] = capability;
 
             if (!byType.ContainsKey(capability.StringType))
             {

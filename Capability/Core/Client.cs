@@ -57,7 +57,7 @@
 
                 // Hash entities to position chunk table
                 // Host Network Node for position chunks
-                p.Add(new Network());
+                p.Add(new ChunksMap());
 
                 // Display UI Toolkit
                 

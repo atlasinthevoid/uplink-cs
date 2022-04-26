@@ -2,71 +2,58 @@
 
 namespace Uplink.Type
 {
-    public class Entities<T> : IEnumerable<T> where T : Entity
+    public class Entities
     {
-        private readonly List<T> data;
-        private readonly Dictionary<Id, T> byId;
-        private readonly Dictionary<System.Type, List<T>> byType;
-        private readonly Dictionary<Name, List<T>> byName;
+        private readonly List<Entity> data;
+        private readonly Dictionary<Id, Entity> byId;
+        private readonly Dictionary<Name, List<Entity>> byName;
 
         public Entities()
         {
             data = new();
             byId = new();
-            byType = new();
             byName = new();
         }
 
-        public void Add(T capability)
+        public void Add(Entity entity)
         {
-            if (capability == null)
-            {
-                return;
-            }
+            data.Add(entity);
+            byId[entity.Metadata.Get("Id")] = entity;
 
-            data.Add(capability);
-
-            if (!byType.ContainsKey(capability.GetType()))
+            if (entity.Metadata.ContainsKey("Name"))
             {
-                byType[capability.GetType()] = new();
-            }
-            byType[capability.GetType()].Add(capability);
-
-            if (capability.Metadata.ContainsKey("Name"))
-            {
-                Name n = capability.Metadata.Get("Name");
+                Name n = entity.Metadata.Get("Name");
                 if (!byName.ContainsKey(n))
                 {
                     byName[n] = new();
                 }
-                byName[n].Add(capability);
+                byName[n].Add(entity);
             }
         }
 
-        public T ById(Id id)
+        public Entity ById(Id id)
         {
             return byId[id];
         }
 
-        public List<T> ByType(System.Type t)
+        public bool ContainsId(Id id)
         {
-            return byType[t];
+            return byId.ContainsKey(id);
         }
 
-        public List<T> ByName(Name n)
+        public List<Entity> ByName(Name n)
         {
             return byName[n];
         }
 
-
-        public IEnumerator<T> GetEnumerator()
+        public bool ContainsName(Name n)
         {
-            return GetEnumerator();
+            return byName.ContainsKey(n);
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public List<Entity> Get()
         {
-            return data.GetEnumerator();
+            return data.ToList();
         }
     }
 }

@@ -17,9 +17,11 @@
         {
             Type.Entity u = new();
             u.Add(new World.Universe());
+            u.Add(new World.Network());
 
             Type.Entity fs = new();
             fs.Add(new Core.FileSystem());
+            fs.Add(new World.Network());
         }
 
 
