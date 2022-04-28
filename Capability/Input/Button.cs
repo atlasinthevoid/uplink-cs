@@ -13,18 +13,14 @@ namespace Uplink.Capability.Input
 
         public override void Update()
         {
-            if (Metadata.ContainsKey("Parent") && Metadata.Get("Parent").Value.Capabilities.ContainsType("Window"))
-            {
-                Menu.Window w = Metadata.Get("Parent").Value.Capabilities.ByType("Window")[0];
-                if (!w.UpdateStarted)
-                {
-                    w.Update();
-                }
 
-                if (StereoKit.UI.Button(Title))
-                {
-                    StereoKit.Log.Info("Button was pressed.");
-                }
+        }
+
+        public override void WindowUpdate()
+        {
+            if (StereoKit.UI.Button(Title))
+            {
+                StereoKit.Log.Info("Button was pressed.");
             }
         }
     }

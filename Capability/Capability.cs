@@ -21,7 +21,7 @@ namespace Uplink.Capability
 
         }
 
-        public virtual void EndUpdate()
+        public virtual void WindowUpdate()
         {
 
         }

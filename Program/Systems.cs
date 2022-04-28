@@ -50,16 +50,5 @@
                 }
             }
         }
-        
-        public static void EndUpdate()
-        {
-            foreach (Type.Capabilities<Capability.Capability> system in list.Values.ToList())
-            {
-                foreach (Capability.Capability capability in system.Get().ToList())
-                {
-                    capability.EndUpdate();
-                }
-            }
-        }
     }
 }
