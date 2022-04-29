@@ -3,11 +3,15 @@
     public class Client : Capability
     {
         bool Setup;
+        public StereoKit.Vec3 Rotation;
+        public StereoKit.Vec3 Position;
 
         public Client()
         {
             StringType = "Client";
             Setup = false;
+            Rotation = new();
+            Position = new();
             Program.Systems.Register(this);
         }
 
@@ -39,6 +43,23 @@
                 tt.Metadata.Add(new Type.Name() { Value = "Status message" });
                 p.Add(tt);
 
+                // Spawn Controllers
+                Type.Entity right = new();
+                World.Controller rc = new();
+                rc.Hand = StereoKit.Handed.Right;
+                right.Add(rc);
+                Core.JoystickMovement rm = new();
+                rm.MovementType = "Rotation";
+                right.Add(rm);
+
+                Type.Entity left = new();
+                World.Controller lc = new();
+                lc.Hand = StereoKit.Handed.Left;
+                left.Add(lc);
+                Core.JoystickMovement lm = new();
+                lm.MovementType = "Position";
+                left.Add(lm);
+
                 // Display info to user
                 Command.Log l = new();
                 l.Level = "Info";
@@ -64,6 +85,7 @@
 
                 Setup = true;
             }
+            StereoKit.Renderer.CameraRoot = StereoKit.Renderer.CameraRoot = StereoKit.Matrix.TR(Position, Rotation);
         }
     }
 }

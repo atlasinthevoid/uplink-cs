@@ -10,7 +10,7 @@ namespace Uplink.Capability.Menu
 
         public override void Update()
         {
-
+            
         }
     }
 }

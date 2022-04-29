@@ -32,6 +32,7 @@
             {
                 Environment.Exit(1);
             }
+            StereoKit.World.RaycastEnabled = true;
             
             Type.Entity cube = new();
             cube.Add(new Capability.World.Network());
