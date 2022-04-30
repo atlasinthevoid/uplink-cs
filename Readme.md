@@ -4,7 +4,7 @@ a open source multiplayer vr engine ❤️
 
 ## building
 
-clang++ is required to build c++ native libraries and dotnet6 is required to build the c# code.
+dotnet6 is used to build the application 🚀
 
 ## licenses
 
