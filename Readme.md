@@ -1,3 +1,5 @@
+> awrf 💖 this repoistory has been archived. Continued development is located at https://github.com/atlasinthevoid/uplink which is written in the high performance [Rust Programming Language](https://www.rust-lang.org/).
+
 # uplink
 
 a open source multiplayer vr engine ❤️
